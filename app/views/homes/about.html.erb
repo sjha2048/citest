@@ -1,0 +1,6 @@
+<% if Seek::Config.about_page_enabled %>
+    <%= image('aboutimg', {width: "100%", class: "rounded"} ) -%>
+    <%= about_text %>
+<% else %>
+    <h4>About page is disabled</h4>
+<% end %>

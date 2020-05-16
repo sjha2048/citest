@@ -1,0 +1,17 @@
+<% admins = Person.all.select(&:is_admin?).sort_by{ |p| (p.last_name.nil? ? p.name : p.last_name) } %>
+
+<h4 class="text_align">Add/remove administrators</h4>
+
+<%= form_tag :action => "update_admins" do -%>
+    <div class="form-group">
+      <label>Administrators</label>
+      <%= objects_input('admins', admins, :typeahead => {:query_url => typeahead_people_path + '?query=%QUERY'}) -%>
+      <p class="help-block">To add administrators, start typing a member's name into the field above.</p>
+    </div>
+
+    <%= submit_tag "Submit", :class => 'btn btn-primary' %>
+<% end -%>
+
+<script>
+    $j(document).ready(loadObjectInputs);
+</script>

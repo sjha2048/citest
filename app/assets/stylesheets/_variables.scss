@@ -1,0 +1,11 @@
+$bootstrap-sass-asset-helper: true;
+@import 'theme'; /* Customize colours etc. here */
+@import 'bootstrap/variables';
+
+$grid-float-breakpoint: $screen-sm-max + 1;
+$grid-float-breakpoint-max: $grid-float-breakpoint - 1;
+
+$info-box-colour: #fffeda;
+$seek-button-colour: #f0f4ff;
+
+$seek-footer-height: 150px;

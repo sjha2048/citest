@@ -1,0 +1,17 @@
+<% tools_list=person.tool_annotations.map(&:value) -%>
+<% expertise_list=person.expertise_annotations.map(&:value) -%>
+
+<p id="expertise">
+  <strong>Expertise:</strong>
+
+  <ul>
+	  <li><%= list_item_tags_list expertise_list,type: :expertise %></li>
+  </ul>
+</p>
+
+<p id="tools">
+  <strong>Tools:</strong>
+  <ul>
+	  <li> <%= list_item_tags_list tools_list,type: :tool %></li>
+  </ul>
+</p>

@@ -1,0 +1,2 @@
+module DataciteDoiHelper
+end

@@ -1,0 +1,56 @@
+<% if SiteAnnouncement.headline_announcement -%>
+    <%= alert_box('warning') do %>
+        <%= site_annoucements_headline %>
+    <% end %>
+<% end %>
+
+<!-- <div style="margin:auto"><img src="assets/splash1-5eebcff204f0968e7edf885259dc969aa6281b3a6c6ebae2bd16680e900e4509.png" style="align:center;width:50%"></div> -->
+<%= image('splash2-wide', {width: "100%", class: "rounded"} ) -%>
+
+<div class="row">
+  <div class="col-md-9">
+    <%= render :partial=>"home_description_box" -%>
+
+    <% if Seek::Config.front_page_buttons_enabled %>
+        <%= render :partial=>"home_buttons" -%>
+    <% end %>
+
+    <% if logged_in_and_registered? %>
+        <%= render :partial=>"user_activity" -%>
+    <% else %>
+        <%= render :partial=>"home_activity_notifications" -%>
+    <% end %>
+  </div> 
+
+  <div class="col-md-3">
+	<%= render :partial=>"gadgets/announcements_gadget" if show_announcements? %>
+
+	<%= render :partial=>"home_news_feeds" -%>
+
+	<% if Seek::Config.tagging_enabled %>
+		<div id="sidebar_tag_cloud">
+			<% cache 'sidebar_tag_cloud', skip_digest: true do -%>
+				<%= render :partial=>"gadgets/tag_cloud_gadget" %>
+			<% end -%>
+		</div>
+	<% end %>
+  </div>
+</div>
+
+<!-- 
+
+  <div class="col-md-3">
+    <#%= render :partial=>"gadgets/announcements_gadget" if show_announcements? %>
+
+    <#%= render :partial=>"home_news_feeds" -%>
+
+    <#% if Seek::Config.tagging_enabled %>
+        <div id="sidebar_tag_cloud">
+          <#% cache 'sidebar_tag_cloud', skip_digest: true do -%>
+              <#%= render :partial=>"gadgets/tag_cloud_gadget" %>
+          <#% end -%>
+        </div>
+    <#% end %>
+  </div>
+</div>
+--> 

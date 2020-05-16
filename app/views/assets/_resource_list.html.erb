@@ -1,0 +1,25 @@
+<% authorization_for_showing_already_done ||= false -%>
+<% narrow_view ||= false -%>
+<% actions_partial_disable ||= false %>
+<% view_type ||= 'view_some' %>
+<% matched_items = []
+   sheet_array = []
+  unless true || @search_query.blank?
+    first_type=collection.first.class
+    matched_items, sheet_array = search_extractable_items collection, @search_query if first_type.respond_to?(:is_asset?) && first_type.is_asset?
+  end
+%>
+<% unless collection.empty? -%>
+  <div class="list_items_container" id="<%=collection.first.class.name%>_<%= view_type %>">
+    <%= render :partial => 'assets/search_matched_spreadsheets_content', :locals => {:authorization_for_showing_already_done => authorization_for_showing_already_done, :matched_items => matched_items, :sheet_array => sheet_array} unless matched_items.blank? %>
+    <% (collection - matched_items).each do |item| -%>
+		  <% if authorization_for_showing_already_done || item.can_view? -%>
+                <% if item.respond_to?(:is_external_search_result?) -%>
+                    <%= render :partial=> "external_search/external_resource_list_item",:object=>item -%>
+                <% else -%>
+				    <%= render :partial => "assets/resource_list_item",:object=>item, :locals => {:actions_partial_disable => actions_partial_disable} -%>
+                <% end -%>
+			<% end -%>
+		<% end -%>
+	</div>
+<% end -%>

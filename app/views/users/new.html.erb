@@ -1,0 +1,75 @@
+<h2 style="color:#f9f9f9;">Sign up for <%= Seek::Config.application_name %></h2>
+
+
+<% if User.count == 0 -%>
+    <%= alert_box('info', :hide_button => true) do %>
+        There are currently no users defined in the system. You should now register an initial user.
+        This initial user will become the Administrator of the system.<br/>
+        You will also be added to a default Project and Institution which you will be able to edit later.
+    <% end %>
+<% end -%>
+
+
+<% if Seek::Config.registration_disabled -%>
+<div class="panel panel-default" id="home_description">
+  <div class="panel-body">
+    <%= registration_disabled_description_text -%>
+  </div>
+</div>
+<% else  %>
+  <div class="row">
+    <div class="col-md-5 col-md-push-7">
+    </div>
+    <div class="col-md-7 col-md-pull-5">
+      <p style="text-align:right">
+        <%= help_link :registering,link_text:'Registration guide',include_icon:true %>
+      </p>
+      <%= form_for @user do |f| -%>
+          <div class="form-group">
+            <label>Username</label>
+            <%= f.text_field :login, :class => 'form-control' %>
+            <p class="help-block">Username should contain a minimum of 3 characters.</p>
+          </div>
+
+          <div class="form-group">
+            <label>Email address (not visible to public)</label>
+            <%= f.text_field :email, :class => 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <%= f.password_field :password, :class => 'form-control' %>
+            <p class="help-block">Password should contain a minimum of <%= User::MIN_PASSWORD_LENGTH %> characters.</p> 
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <%= f.password_field :password_confirmation, :class => 'form-control' %>
+          </div>
+        <% if (User.any? && Seek::Config.terms_enabled) %>
+          <div class="form-group">
+            <label>
+              <%= check_box_tag "tc_agree","1",false -%> I have read and agree to the
+              <%= link_to 'Terms and Conditions and the Data Policy', terms_home_path ,'data-popup' => true,
+              :onclick=>"window.open(this.href,'terms', 'height=700, width=600, left=500, top=100'); return false;" %>
+            </label>
+          </div>
+        <% end %>
+          <%= submit_tag 'Register', data: { disable_with: 'Registering...' }, :class => 'btn btn-primary', :disabled => (User.any? && Seek::Config.terms_enabled ) %>
+      <% end -%>
+    </div>
+  </div>
+<% end -%>
+
+<script type="text/javascript">
+
+    $j('input:checkbox').change(
+        function () {
+            if ($j(this).is(':checked')) {
+                $j("[name=commit]").attr("disabled", false);
+            } else {
+                $j("[name=commit]").attr("disabled", true);
+            }
+        });
+
+</script>

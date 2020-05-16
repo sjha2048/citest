@@ -1,0 +1,53 @@
+<%
+   n = multiple_fileinfo.content_blobs.count
+   resource_text = text_for_resource(multiple_fileinfo.parent)
+%>
+
+<%
+   model_image_text = ""
+   image_count = 0
+   if multiple_fileinfo.respond_to? :model_image
+     image_count = multiple_fileinfo.model_image.nil? ? 0 : 1
+     if image_count==0
+       model_image_text = ""
+     else
+       model_image_text = " (and an image)"
+     end
+   end
+
+   external_links  = multiple_fileinfo.content_blobs.select &:show_as_external_link?
+   files =   multiple_fileinfo.content_blobs  - external_links
+%>
+
+<strong>
+  <%= pluralize(n, 'item') -%><%= model_image_text -%> <%= (n==1 && image_count==0) ? "is" : "are" %> associated with this <%= resource_text %>:
+</strong>
+
+<% unless multiple_fileinfo.content_blobs.empty? %>
+    <ul>
+      <% files.each do |file| -%>
+          <li>
+            <%=h file.original_filename -%>
+            <span class="subtle">(<%=h file.human_content_type -%> - <%= filesize_as_text(file) %>)</span>
+            <% asset = file.asset
+               if Seek::Util.is_multi_file_asset_type?(asset.class) && (can_download_asset?(asset, params[:code])) -%>
+                <%= render :partial => "assets/view_content", :locals => {:content_blob => file, :icon_view => true} -%>
+                <%= mini_file_download_icon(file) %>
+            <% end %>
+          </li>
+      <% end -%>
+
+      <% external_links.each do |page| -%>
+          <li>
+            <%= link_to page.url, page.url, :target=>"_blank" -%>
+            <span class="subtle">(Website)</span>
+            <% asset = page.asset
+               if Seek::Util.is_multi_file_asset_type?(asset.class) && (can_download_asset?(asset, params[:code])) -%>
+                <%= image_tag_for_key('arrow_right', page.url, "Link", {:title => 'Go to this Link',:target=>"_blank"}, "") -%>
+            <% end %>
+          </li>
+      <% end -%>
+    </ul>
+<% end %>
+
+

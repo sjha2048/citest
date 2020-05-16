@@ -1,0 +1,92 @@
+<%= javascript_include_tag "projects" %>
+
+<%= f.error_messages %>
+
+<div class="form-group">
+  <%= f.label :title, class: 'required' -%>
+  <%= f.text_field :title, :class=>"form-control"-%>
+</div>
+
+<div class="form-group">
+  <%= f.label "Public Web page"-%>
+  <%= f.text_field :web_page, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label "Internal Web page" -%>
+  <%= f.text_field :wiki_page, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label "Target Completion Date" -%>
+  <%= f.date_field :target_completion, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label "Project Status" -%>
+  <%= f.select :project_status, options_for_select(Seek::Util.project_statuses), {:include_blank => true} -%>
+</div>
+
+<div class="form-group">
+  <%= f.label :description -%>
+  <%= f.text_area :description, :rows => 5, :class=>"form-control" -%>
+</div>
+
+<% if Seek::Config.project_hierarchy_enabled -%>
+    <div class="form-group">
+      <%= f.label "Parent" -%>
+      <%= tree_single_select_tag Project, "id", @project ? @project.parent : nil, [@project] + @project.descendants, "parent_id" %>
+    </div>
+<% end -%>
+
+<% if Seek::Config.programmes_enabled && admin_or_programme_administrator_logged_in? %>
+    <%= render :partial=>"projects/programme_selection", :locals=>{:f=>f} -%>
+<% end %>
+
+<% unless project %>
+    <%= render :partial=> "projects/select_add_current_user_to_project" %>
+<% end %>
+
+<% if Seek::Config.organisms_enabled %>
+    <%= render :partial=>"projects/organisms_selection", :locals=>{:f=>f} -%>
+<% end %>
+
+<% if false %> <%# if @project.can_manage? %>
+    <%= render :partial => 'assets/license_selector', :locals => { :resource => @project, :label=>"Default License",:accessor=>:default_license } %>
+
+    <%= folding_panel('Default Sharing Policy', false, id: 'sharing_form',
+                      help_text: "Here you can choose to configure a default sharing policy that is applied to new resources created as part of this #{t('project').downcase}.") do %>
+        <% if @project.new_record? %>
+            <div class="alert alert-warning">
+              To configure a default sharing policy, please finish creating the project then visit the "Edit Project Details" page.
+            </div>
+        <% else %>
+            <div class="alert alert-info">
+              Here you can choose to configure a default sharing policy that is applied to new resources created as part of this project.
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.check_box(:use_default_policy, autocomplete: 'off', onchange: toggle_appear_javascript('default-sharing-form')) %> <strong>Enable default policy</strong>
+              </label>
+            </div>
+
+            <div id="default-sharing-form" style="<%= show_or_hide_block(@project.use_default_policy) -%>;">
+              <%= render partial: 'sharing/permissions_table', locals: { object: @project, policy: @project.default_policy || Policy.default, projects: [@project], downloadable: true } %>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% if false %> <%# if admin_logged_in? %>
+  <%= folding_panel('Project Settings', false, id: 'admin_section') do %>
+    <span class="subtle">(Only visible to administrators)</span>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box(:nels_enabled, autocomplete: 'off') %> <strong>Enable NeLS Integration</strong>
+      </label>
+    </div>
+  <% end %>
+<% end %>
+
+<%= f.submit(project ? "Update" : "Create",data: { disable_with: (project ? "Updating..." : "Creating...") }, :class => 'btn btn-primary') -%>
+ or <%= cancel_button(project ? project_path(project.id) : projects_path) -%>

@@ -1,0 +1,39 @@
+<%= folding_panel('Associate authors') do %>
+    <div class="row">
+      <div class="col-md-4 col-md-push-8">
+        <div class="alert alert-info">
+          Using this form you can link the authors listed on the publication to people registered in SEEK.<br/><br/>
+
+          SEEK will try and suggest the correct person based on the author's name.
+          If this suggestion is incorrect, please select the correct person from the dropdown menu, or choose "None" if this person isn't a member of SEEK.<br/><br/>
+
+          To reset the author list to those listed on the publication, click the "Disassociate All Authors" button.<br/>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-pull-4">
+        <% unless publication.publication_authors.empty? %>
+          <div class="form-horizontal">
+            <% publication.publication_authors.each do |author| %>
+              <%= f.fields_for(:publication_authors, author) do |author_fields| %>
+                <div class="form-group">
+                  <label class="control-label col-sm-4">
+                    <%= author.first_name -%> <%= author.last_name -%>
+                  </label>
+                  <div class="col-sm-8">
+                    <% options = author_to_person_options(author.person_id, author.suggested_person) %>
+                    <%= author_fields.select :person_id, options, { include_blank: 'None' }, { class: 'form-control' } %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div>
+            <%= button_link_to("Disassociate All Authors", 'destroy', disassociate_authors_publication_url(publication),
+                               { class: 'btn-xs pull-right', data: { confirm: "This will reset the publication's links to people in SEEK, are you sure you wish to do this?" }, :method => :post}) -%>
+          </div>
+        <% else %>
+            <span class="none_text">No authors listed</span>
+        <% end %>
+      </div>
+    </div>
+<% end %>

@@ -1,0 +1,30 @@
+<%= f.error_messages -%>
+
+<div class="form-group">
+  <%= f.label :title, class: 'required' -%>
+  <%= f.text_field :title, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label :web_page -%>
+  <%= f.text_field :web_page, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label :address -%>
+  <%= f.text_area :address, :rows => 5, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label :city -%>
+  <%= f.text_field :city, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label :country, class: 'required' -%>
+  <%= f.country_select :country, nil, { :include_blank => 'Please select...' }, :class=>"form-control" -%>
+</div>
+
+<%= f.submit(institution ? "Update" : "Create",data: { disable_with: (institution ? "Updating..." : "Creating...") },
+             :class => 'btn btn-primary') -%> or
+<%= cancel_button(institution ? institution_path(institution.id) : institutions_path) -%>

@@ -1,0 +1,19 @@
+<% docpath = documents_path if docpath.nil? %>
+<% peeppath = people_path if peeppath.nil? %>
+<% pubpath = publications_path if pubpath.nil? %>
+<% instpath = institutions_path if instpath.nil? %>
+<% projpath = projects_path if projpath.nil? %>
+
+
+
+    <li><%= link_to t("project").pluralize, projects_path %></li>
+    <li><%= link_to "Institutions", institutions_path %></li>
+    <li><%= link_to "People", people_path %></li>     
+    <li><%= link_to "Publications", publications_path %></li>
+    <li><%= link_to t("document").pluralize, documents_path %></li>
+
+<li><%= image_tag_for_key('manage', edit_investigation_path(item), nil, nil, "Manage #{t('investigation')}") -%></li>
+<li><%= image_tag_for_key('manage', edit_investigation_path(item), nil, nil, "Manage #{t('investigation')}") -%></li>
+<li><%= image_tag_for_key('manage', edit_investigation_path(item), nil, nil, "Manage #{t('investigation')}") -%></li>
+<li><%= image_tag_for_key('manage', edit_investigation_path(item), nil, nil, "Manage #{t('investigation')}") -%></li>
+<li><%= image_tag_for_key('manage', edit_investigation_path(item), nil, nil, "Manage #{t('investigation')}") -%></li>

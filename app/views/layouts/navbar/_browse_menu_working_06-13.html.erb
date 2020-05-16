@@ -1,0 +1,91 @@
+<li class="dropdown" id="browse-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <span class="hidden-md">Discover</span>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" style="width:150%;">
+    <!-- <li role="presentation" class="dropdown-header visible-md">Browse</li>
+    <li role="presentation" class="dropdown-header"><%# <%= t("menu.yellow_pages") - %></li>-->
+    <li> 
+      <a href="<%= projects_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('project', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        <%= t("project").pluralize %>
+      </a>
+    </li>
+    <li> 
+      <a href="<%= institutions_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('institution', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Institutions
+      </a>
+    </li>
+    <li> 
+      <a href="<%= people_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('person', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        People
+      </a>
+    </li>
+    <li> 
+      <a href="<%= publications_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('publication', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Publications
+      </a>
+    </li>
+    <li> 
+      <a href="<%= documents_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('document', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Documents
+      </a>
+    </li>
+    <li role="presentation" class="divider"></li>
+    <li> 
+      <a href="<%= new_advanced_search_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('search', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Advanced Search
+      </a>
+    </li>
+
+    <% if false %>
+      <li role="presentation" class="dropdown-header"><%= t("menu.isa") -%></li>
+      <%# if Seek::Config.programmes_enabled %>
+      <li><%= link_to t('programme').pluralize, programmes_path %></li>
+      <%# end %>
+      <li><%= link_to t("investigation").pluralize, investigations_path %></li>
+      <li><%= link_to t("study").pluralize, studies_path %></li>
+      <li><%= link_to t("assays.assay").pluralize, assays_path %></li>
+      <li role="presentation" class="dropdown-header"><%= t("menu.assets") -%></li>
+      <li><%= link_to t("data_file").pluralize, data_files_path %></li>
+      <%# if Seek::Config.models_enabled %>
+      <li><%#<%= link_to t("model").pluralize, models_path %></li>
+      <%# end %>
+      <li><%= link_to t("sop").pluralize, sops_path %></li>
+      <li><%= link_to "Publications", publications_path %></li>
+
+      <li role="presentation" class="dropdown-header"><%= t("menu.activities") -%></li>
+      <li><%= link_to t("presentation").pluralize, presentations_path %></li>
+      <%# if Seek::Config.events_enabled %>
+      <li><%= link_to t("event").pluralize, events_path %></li>
+      <%# end %>
+      <!-- <li role="presentation" class="dropdown-header"><%#<%= t("menu.samples") - %></li> -->
+   
+      <%# if Seek::Config.samples_enabled %>
+      <li><%= link_to("Sample types", sample_types_path) %></li>
+      <%# end %>
+
+      <%# if Seek::Config.organisms_enabled %>
+      <li><%= link_to "Organisms", organisms_path %></li>
+    <% end %>
+  </ul>
+</li>

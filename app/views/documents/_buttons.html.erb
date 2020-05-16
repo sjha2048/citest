@@ -1,0 +1,31 @@
+<% asset ||= item %>
+
+<%= render :partial => "subscriptions/subscribe", :locals => {:object => asset } -%>
+
+
+<% if asset.is_downloadable? -%>
+    <%# param code is used for temporary link -%>
+    <%
+       path = polymorphic_path(asset,:version=>version,:action=>:download,:code=>params[:code])
+    %>
+    <% if can_download_asset?(asset, params[:code]) -%>
+        <%= download_or_link_button display_asset, path, display_asset.single_content_blob.try(:url), human_name,
+                                    :class => 'btn btn-default',disabled:asset.download_disabled? %>
+
+        <% if asset.is_a?(DataFile) && display_asset.contains_extractable_spreadsheet? %>
+            <%= button_link_to('Explore', 'spreadsheet', polymorphic_path(asset, :version => version, :action => :explore, :code => params[:code])) %>
+        <% end -%>
+
+        <% if display_asset.single_content_blob && !display_asset.single_content_blob.show_as_external_link? %>
+            <%= view_content_button display_asset %>
+        <%   end -%>
+    <% end -%>
+    <% if logged_in? && !can_download_asset?(asset, params[:code]) %>
+        <%= render :partial=>"assets/request_resource",:locals=>{:resource=>asset} %>
+    <% end -%>
+<% end -%>
+
+
+<%= button_link_to('Upload new version', 'new', nil, ) -%>
+
+

@@ -1,0 +1,79 @@
+version: '3'
+services:
+  db: # Database implementation, in this case MySQL
+    image: mysql:5.7
+    container_name: seek-mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    stop_grace_period: 1m30s
+    env_file:
+      - docker/db.env
+    volumes:
+      - seek42-mysql-db:/var/lib/mysql
+
+  seek: # The SEEK application
+    #build: .
+    #image: fairdom/seek:1.7
+    image: seek46
+    container_name: seek45
+    command: docker/entrypoint.sh
+    restart: always
+    environment:
+      RAILS_ENV: production
+      SOLR_PORT: 8983
+      NO_ENTRYPOINT_WORKERS: 1
+    env_file:
+      - docker/db.env
+    volumes:
+      - seek4-filestore:/seek4/filestore
+      - seek4-cache:/seek4/tmp/cache
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+      - solr
+    links:
+      - db
+      - solr
+
+  seek_workers: # The SEEK delayed job workers
+      #build: .
+      #image: fairdom/seek:1.7
+      image: seek46
+      container_name: seek-workers
+      command: docker/start_workers.sh
+      restart: always
+      environment:
+        RAILS_ENV: production
+        SOLR_PORT: 8983
+      env_file:
+        - docker/db.env
+      volumes:
+        - seek4-filestore:/seek4/filestore
+        - seek4-cache:/seek4/tmp/cache
+      depends_on:
+        - db
+        - solr
+      links:
+        - db
+        - solr
+
+  solr:
+    image: fairdom/seek-solr
+    container_name: seek-solr
+    restart: always
+    environment:
+      SOLR_JAVA_MEM: -Xms512m -Xmx1024m
+    volumes:
+      - seek4-solr-data:/opt/solr/server/solr/seek4/data
+
+
+volumes:
+  seek4-filestore:
+    external: true
+  seek42-mysql-db:
+    external: true
+  seek4-solr-data:
+    external: true
+  seek4-cache:
+    external: true

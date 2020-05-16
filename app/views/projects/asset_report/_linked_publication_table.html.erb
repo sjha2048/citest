@@ -1,0 +1,22 @@
+<div style="overflow-x: auto;">
+<table class='asset_report_table'>
+  <thead>
+    <tr>
+      <th style="min-width:12em;max-width:12em;padding:10px;">Publication</th>
+      <th style="padding:10px;">Publication SEEK URL</th>
+      <th style="min-width:10em;max-width:10em;padding:10px;">PubMed ID / DOI</th>
+      <th style="min-width:5em;max-width:5em;padding:10px">Organism</th>
+      <th style="min-width:3em;min-width:3em;padding:10px;">Taxonomy ID</th>
+      <th style="min-width:10em;max-width:10em;padding:10px"><%= t('data_file') %> titles</th>
+      <th style="padding:10px;"><%= t('data_file') %> SEEK URLs</th>
+      <th style="padding:10px;"><%= t('data_file') %> Managers</th>
+      <th style="min-width:10em;max-width:10em;padding:10px;"><%= t('model') %> titles</th>
+      <th style="padding:10px;"><%= t('model') %> SEEK URLs</th>
+      <th style="padding:10px;"><%= t('model') %> Managers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial=>"projects/asset_report/linked_publication_row",:collection=>linked_publication_table %>
+  </tbody>
+</table>
+</div>

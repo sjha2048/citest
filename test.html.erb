@@ -1,0 +1,133 @@
+<%# this partial expects the following parameters to be set: -%>
+
+<%# - selected_project_ids - IDs of the projects the resource is currently associated with; skip this parameter for a "new" resource -%>
+<%# - disable_project_select - selection should only be available on 'new' action, but not on 'edit'; this parameter has a default of "false" -%>
+
+<%
+  allow_nil ||= false
+  allow_all ||= Seek::Config.is_virtualliver
+  resource ||= nil
+
+  selected_projects = resource ? resource.projects : []
+  if allow_all
+    possible_projects = Project.all
+  else
+    possible_projects = []
+    possible_projects |= User.current_user.person.projects
+    if resource
+      possible_projects |= resource.projects
+      possible_projects |= resource.contributor.projects if resource.respond_to?(:contributor) && resource.contributor
+    end
+  end
+
+  possible_projects = possible_projects - selected_projects
+
+  possible_projects_json, selected_projects_json = [possible_projects, selected_projects].map do |projects|
+    projects.to_a.map { |p| { id: p.id, title: p.title }}.to_json
+  end
+
+  field_name = "#{resource.class.name.underscore}[project_ids][]"
+  title = 'Projects'
+  title += '<span class="required">*</span>'.html_safe unless allow_nil
+
+  object_type_text = resource.class.name.underscore.humanize
+%>
+
+<%= folding_panel(title, false, id: "add_projects_form",
+                  help_text: "Here you can associate the #{object_type_text} with specific #{t('project').downcase.pluralize}.") do %>
+    <p class="help-block">
+    <font color="#FFFFFF">The following projects are associated with this <%= object_type_text -%>:</font>
+    </p>
+    <div id="project-selector">
+      <%# The following line ensures that the parameter is always sent, even when nothing is selected.
+        It adds a "" as the first item in the array. So if items 1,2, and 3 are selected the
+        value of the parameter will be ["","1","2","3"]. This is compatible with the rails
+        association association_ids= methods, which reject 'blank' values automatically.%>
+      <%= hidden_field_tag field_name, '' %>
+      <div class="box_editing_inner">
+        <ul class="related_asset_list">
+          <span v-if="selected.length == 0" class="none_text">None</span>
+          <li class="association-list-item" v-for="(project, index) in selected">
+		  <span :title="project.title"><font color="#000000">{{ project.title }}</font></span>
+            <a class="remove-association clickable" @click="remove(project, index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+            <input type="hidden" name="<%= field_name -%>" v-model="project.id"/>
+          </li>
+        </ul>
+      </div>
+      <div class="association_step">
+        <div class="form-group">
+          <select autocomplete="off" class="form-control" id="projects-selector-select">
+            <option selected="selected">Select a project...</option>
+            <option v-for="project in possibilities" :value="project.id">{{ project.title }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+<% end %>
+<%= content_tag :script, possible_projects_json.html_safe, type: 'application/json', id: 'project-selector-possibilities-json' %>
+<%= content_tag :script, selected_projects_json.html_safe, type: 'application/json', id: 'project-selector-selected-json' %>
+<%= content_tag :script, project_policies_json(possible_projects | selected_projects), type: 'application/json', id: 'project-default-policies-json' %>
+<%= content_tag :script, enable_auto_project_license? ? project_licenses_json : '{}', type: 'application/json', id: 'project-default-licenses-json' %>
+
+<script id="project-selector-script">
+  Sharing.defaultPolicies = JSON.parse($j('#project-default-policies-json').text());
+  Sharing.defaultLicenses = JSON.parse($j('#project-default-licenses-json').text());
+
+  Sharing.projectsSelector = new Vue({
+    el: '#project-selector',
+    data: {
+      possibilities: JSON.parse($j('#project-selector-possibilities-json').text()),
+      selected: JSON.parse($j('#project-selector-selected-json').text())
+    },
+    methods: {
+      remove: function (project, index) {
+        this.possibilities.push(project);
+        this.selected.splice(index, 1);
+        Sharing.removePermissionForProject(project);
+      },
+      add: function (projectId, skipPrompt) {
+        for (var i = 0; i < this.possibilities.length; i++) {
+          var project = this.possibilities[i];
+          if (project.id == projectId) {
+            this.selected.push(project);
+            // Ask if they want to use the default policy (if there is one)
+            if (Sharing.defaultPolicies[project.id] && (skipPrompt || confirm('' + project.title + ' has a default policy specified, do you want to apply it?'))) {
+              Sharing.applyPolicy(Sharing.defaultPolicies[project.id]);
+            } else { // Otherwise just add a permission for the project
+              Sharing.addPermissionForProject(project);
+            }
+
+            // Select the default license
+            if (this.selected.length === 1 && Sharing.defaultLicenses[project.id]) {
+              $j('#license-select').val(Sharing.defaultLicenses[project.id]);
+              zenodoExport.setLicenseUrl();
+            }
+            this.possibilities.splice(i, 1);
+          }
+        }
+      }
+    }
+  });
+
+  $j(document).ready(function () {
+    <% if params[:project_ids] && resource && resource.new_record? %>
+      // Auto select projects from params if this is a new object
+      <% params[:project_ids].each do |project_id| %>
+        Sharing.projectsSelector.add(<%= project_id %>, true);
+      <% end %>
+    <% end %>
+    // Auto select project if there is only one
+    if (Sharing.projectsSelector.possibilities.length === 1 &&
+        Sharing.projectsSelector.selected.length === 0) {
+      Sharing.projectsSelector.add(Sharing.projectsSelector.possibilities[0].id, true);
+    }
+    $j('#projects-selector-select').change(function () {
+      if ($j(this).val()) {
+        Sharing.projectsSelector.add($j(this).val());
+        $j(this).prop('selectedIndex', 0); // Reset the select
+      }
+    })
+  });
+</script>

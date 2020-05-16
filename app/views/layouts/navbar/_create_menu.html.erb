@@ -1,0 +1,96 @@
+<li class="dropdown" id="create-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <!--<span class="hidden-md">Create</span> -->
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation" class="dropdown-header" style="color: #FFBA9B; font-weight: 700; text-transofmr: uppercase; background-color: #FFBA9B; color: #111A2B; border-radius: 100px;">Create</li>
+    <!--<li role="presentation" class="dropdown-header"><%#= t("menu.yellow_pages") -%></li>
+    <li> 
+      <a href="<%#= new_project_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%#= image('project', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Project 
+      </a>
+    </li> -->
+    <li> 
+      <a href="<%= new_institution_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('institution', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Institution
+      </a>
+    </li>
+    <li> 
+      <a href="<%= new_publication_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('publication', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Publication
+      </a>
+    </li>
+    <li> 
+      <a href="<%= new_document_path %>">
+        <span style = "float:left; margin-right:5px;">
+	  <%= image('document', {height: "20", width: "20", class: "rounded"} ) -%>
+	</span>
+        Document
+      </a>
+    </li>
+
+    <% if Seek::Config.programmes_enabled && can_create_programmes? %>
+        <li><%= link_to t('programme'), new_programme_path %></li>
+    <% end %>
+    <% if false %>
+        <%# if can_create_projects? %>
+        <li><%= link_to t("project"), new_project_path %></li>
+        <%# end %>
+        <%# if can_create_institutions? %>
+        <li><%= link_to "Institution", new_institution_path %></li>
+        <%# end %>
+	
+        <%# if can_create_new_items? %>
+        <li><%= link_to "Publication", new_publication_path %></li>
+        <li><%= link_to t("document"), new_document_path %></li>
+        <%# end %>
+    <% end %>
+    <% if false %>
+    <%# if can_create_new_items? %>
+        <li><%= link_to "Profile", new_person_path %></li>
+        <li role="presentation" class="dropdown-header"><%= t("menu.isa") -%></li>
+        <li><%= link_to t("investigation"), new_investigation_path %></li>
+        <li><%= link_to t("study"), new_study_path %></li>
+        <li><%= link_to t("assays.assay"), new_assay_path %></li>
+
+        <li role="presentation" class="dropdown-header"><%= t("menu.assets") -%></li>
+        <li><%= link_to t("data_file"), new_data_file_path %></li>
+        <%# if Seek::Config.models_enabled %>
+        <li><%= link_to t("model"), new_model_path %></li>
+        <%# end %>
+        <li><%= link_to t("sop"), new_sop_path %></li>
+        <li><%= link_to "Publication", new_publication_path %></li>
+        <li><%= link_to t("document"), new_document_path %></li>
+
+        <li role="presentation" class="dropdown-header"><%= t("menu.activities") -%></li>
+        <li><%= link_to t("presentation"), new_presentation_path %></li>
+        <%# if Seek::Config.events_enabled %>
+        <li><%= link_to t("event"), new_event_path %></li>
+        <%# end %>
+
+        <li role="presentation" class="dropdown-header"><%= t("menu.samples") -%></li>
+        <%# if Sample.can_create? %>
+        <li><%= link_to("Sample", select_sample_types_path) %></li>
+        <%# end %>
+        <%# if SampleType.can_create? %>
+        <li><%= link_to("Sample Type", new_sample_type_path) %></li>
+        <%# end %>
+        <li><%= link_to("Strain", new_strain_path) %></li>
+        <%# if can_create_organisms? %>
+        <li><%= link_to "Organism", new_organism_path %></li>
+        <%# end %>
+        <li role="presentation" class="dropdown-header"><span style="color:#FFBA9B">You cannot add assets or other items until you are a member of a <%= t('project') %>.</span></li>
+    <% end %>
+  </ul>
+</li>

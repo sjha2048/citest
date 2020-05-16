@@ -1,0 +1,20 @@
+#MySQL
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: mysqluser
+  password: mysqlpassword
+
+development:
+  <<: *default
+  database: seek_development
+
+test:
+  <<: *default
+  database: seek_test
+
+production:
+  <<: *default
+  database: seek_production

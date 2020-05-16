@@ -1,0 +1,24 @@
+<%= list_item_description resource.description %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= list_item_programme_attribute(resource) if Seek::Config.programmes_enabled %>
+    <%= list_item_optional_attribute "Public web page", h(resource.web_page), h(resource.web_page) %>
+    <% if logged_in_and_registered? %>
+      <%= list_item_simple_list resource.project_administrators, "Project PI(s)"%>
+    <% end %>
+
+    <%= list_item_simple_list resource.institutions, "Institutions" %>
+    <% if false %> <%# unless hide_contact_details?(resource) %>
+        <%= list_item_optional_attribute "Internal web page", h(resource.wiki_page), h(resource.wiki_page) %>
+    <% end %>
+  </div>
+
+<div class="col-sm-6 hidden-xs">
+    <%if Seek::Config.organisms_enabled %>    
+      <%= list_item_simple_list resource.organisms, "Organisms" %> 
+    <% end %>
+    <%= list_item_optional_attribute "Project Status", h(resource.project_status) %> 
+    <%= list_item_optional_attribute "Target Completion Date", h(resource.target_completion) %> 
+  </div>
+</div>

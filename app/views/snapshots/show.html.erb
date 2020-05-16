@@ -1,0 +1,66 @@
+<% title = capture do %>
+    <%= @snapshot.title -%>
+    <small>(snapshot <%= @snapshot.snapshot_number -%>)</small>
+<% end %>
+<%= render :partial => "general/item_title", :locals => {:item=>@snapshot, :buttons_partial => 'snapshots/buttons'} %>
+
+<div class="row">
+  <div class="col-md-9 col-sm-8">
+    <%= item_description @snapshot.description -%>
+
+    <% if Seek::Config.doi_minting_enabled %>
+        <p>
+          <strong>DOI:</strong>
+          <% if @snapshot.doi %>
+              <%= doi_link(@snapshot.doi) %>
+          <% else %>
+              <span class="none_text">None</span>
+          <% end %>
+        </p>
+    <% end %>
+
+    <% if Seek::Config.zenodo_publishing_enabled %>
+        <p>
+          <strong>Zenodo URL:</strong>
+          <% if @snapshot.published_in_zenodo? %>
+              <%= link_to @snapshot.zenodo_record_url, @snapshot.zenodo_record_url %>
+          <% elsif @snapshot.in_zenodo? %>
+              <span class="none_text">Not yet published</span>
+          <% else %>
+              <span class="none_text">None</span>
+          <% end %>
+        </p>
+    <% end %>
+
+    <p><strong>Created at:</strong> <%= date_as_string(@snapshot.created_at, true) %></p>
+
+    <%= panel('Contents') do %>
+        <%= render :partial => 'tree', locals: { resource: @snapshot.metadata, top: true } %>
+    <% end %>
+
+    <%= panel('Fingerprints') do %>
+        <p style="font-style: italic">
+          These checksums allow you to check a Snapshot you have downloaded hasn't been modified. For details on how to use these please visit
+          <%= help_link :investigation_checksum, link_text:'this guide' %>
+        </p>
+        <p>
+          <strong>MD5:</strong> <%= @snapshot.md5sum %>
+        </p>
+
+        <p>
+          <strong>SHA1:</strong> <%= @snapshot.sha1sum %>
+        </p>
+    <% end %>
+
+  </div>
+  <div class="col-md-3 col-sm-4">
+    <%= render partial: 'assets/citation_box', locals: { doi: @snapshot.doi } unless @snapshot.doi.blank? %>
+    <%= render partial: 'snapshots/snapshots', locals: { snapshots: @resource.snapshots,
+                                                         selected: @snapshot,
+                                                         resource: @resource } %>
+    <%#logging for snapshots didnt start until ~september (dates will vary depending on update time, but is to give a rough indication only) %>
+    <%= render partial: 'assets/usage_info_box', locals: { resource: @snapshot,
+                                                           logging_start_date: Date.parse('01-09-2018')  }
+    -%>
+  </div>
+</div>

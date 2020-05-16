@@ -1,0 +1,55 @@
+<% if mine?(@person) && !current_user.guest? -%>
+    <% tooltip_text = "Publish your owned assets in one click. A preview will be given before publishing" %>
+    <%= button_link_to "Publish your assets", "publish", batch_publishing_preview_person_path(@person), 'data-tooltip' => tooltip(tooltip_text) -%>
+  <% if @person.is_in_any_gatekept_projects? %>
+    <%= button_link_to "Assets awaiting approval", "waiting", waiting_approval_assets_person_path(@person),
+                       'data-tooltip' => tooltip("The assets you have requested to publish, but are awaiting Gatekeeper approval") -%>
+  <% end %>
+  <% if @person.is_asset_gatekeeper_of_any_project? %>
+    <%= button_link_to "Assets you are Gatekeeping", "waiting", requested_approval_assets_person_path(@person),
+                       'data-tooltip' => tooltip("The assets people have requested to publish, but are still awaiting your approval") -%>
+  <% end %>
+<% end %>
+
+<% if (mine?(@person) || @person.can_be_edited_by?(current_user)) && !current_user.guest? -%>
+  <%= button_link_to "Edit Profile", "edit", edit_person_path(@person), 'data-tooltip' => tooltip("Edit name, description, disciplines, and more.") -%>
+  <%= button_link_to "Edit projects", "group_edit", edit_person_path(@person, :edit_roles=>true), 
+                     'data-tooltip' => tooltip("Edit roles within projects, subscriptions, and email announcements")-%>
+  <% if mine?(@person) -%>
+    <%= button_link_to "Change Password", "lock", url_for({:controller=>:users, :action=>:edit, :id=>@person.user}) -%> 
+  <% end -%>
+  <% if admin_logged_in? -%>
+    <%= button_link_to "Delete Profile", "destroy", person_path(@person),  
+		       { data: { confirm: 'Are you sure?' }, :method => :delete} -%> 
+    <%#= image_tag_for_key "destroy", person_path(@person), "Delete Person", { data: { confirm: 'Are you sure?' }, :method => :delete}, "Delete Person" -%>
+  <% end -%>
+<% end %>
+
+<% if false %><%#= admin_dropdown('Management') do %>
+  <% if (mine?(@person) || @person.can_be_edited_by?(current_user)) && !current_user.guest? -%>
+      <li>
+        <%= image_tag_for_key('edit', edit_person_path(@person), "Edit Person Profile", nil, 'Edit Profile') -%>
+      </li>
+     
+      <li>
+        <%= image_tag_for_key("group_edit", edit_person_path(@person, :edit_roles => true), "Edit Person Profile", nil, 'Edit project roles and subscriptions') -%>
+      </li>
+    
+      <% if mine?(@person) -%>
+          <li>
+            <%= image_tag_for_key "lock", url_for({:controller=>:users, :action=>:edit, :id=>@person.user}), "Change password", nil, "Change password" -%>
+          </li>
+	  <% if false %>
+            <li>
+              <%= image_tag_for_key "oauth", user_oauth_sessions_path(@person.user), "OAuth Sessions", nil, "OAuth Sessions" -%>
+            </li>
+          <% end %>
+      <% end -%>
+      <% if admin_logged_in? -%>
+          <li>
+            <%= image_tag_for_key "destroy", person_path(@person), "Delete Person", { data: { confirm: 'Are you sure?' }, :method => :delete}, "Delete Person" -%>
+          </li>
+      <% end -%>
+  <% end %>
+
+<% end %>

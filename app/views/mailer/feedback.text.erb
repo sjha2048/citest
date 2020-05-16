@@ -1,0 +1,18 @@
+Hi,
+  We have received some SEEK feedback.
+  
+<% if @anon -%>
+  This was sent anonymously.
+<% else -%>
+  This was provided by <%= "#{@person.name} - #{person_url(@person)}, and you can reply to this email: #{@person.email}" -%>
+<% end -%>
+
+  
+  Subject: <%= @topic -%>
+
+
+  Details:
+  <%= @details %>
+
+
+-- END --

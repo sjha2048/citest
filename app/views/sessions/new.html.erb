@@ -1,0 +1,9 @@
+<% if logged_in? %>
+    <br/>
+    <p class="text-center">You are already logged in.</p>
+    <p class="text-center"><%= link_to "Sign out", logout_url %></p>
+<% else %>
+    <div class="container">
+        <%= render :partial => "gadgets/sign_in", :locals => {:original_path => params[:return_to]} %>
+    </div>
+<% end %>

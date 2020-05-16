@@ -1,0 +1,1 @@
+Rack::Mime::MIME_TYPES['.map'] = "text/plain"

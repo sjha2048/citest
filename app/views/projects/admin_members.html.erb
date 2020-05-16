@@ -1,0 +1,144 @@
+<%= javascript_include_tag 'projects' %>
+
+<%= render :partial => "general/page_title",:locals=>{:title=>"Administering the #{t('project').downcase} members of #{link_to(h(@project.title),@project)}".html_safe} %>
+
+<div class="row">
+  <div class="col-md-5 col-md-push-7">
+    <%= panel('Add members', :id => "add_member") do %>
+        <div class="form-group">
+          <label class="control-label">1. Type the names of the people you wish to add to the <%= t('project').downcase %></label>
+          <%= objects_input('people_ids', [], :typeahead => {:values => Person.all.map {|p| {:id => p.id, :name => p.name, :hint => p.typeahead_hint}}}) -%>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label">2. Select the institution through which these people are involved with the <%= t('project').downcase %></label>
+          <%= select_tag :institution_ids, options_from_collection_for_select(Institution.order(:title), "id", "title"),
+                         :include_blank => true,
+                         :class => 'form-control' %>
+        </div>
+
+        <%= button_link_to('Add', 'new', 'javascript:Projects.actions.add();') -%>
+    <% end %>
+  </div>
+
+  <div class="col-md-7 col-md-pull-5" id="project-admin-page">
+    <%= panel("#{t('project')} members", :id => "admin_members") do %>
+        <%= alert_box('info') do %>
+          The current project members are listed below. From here you can:
+          <dl class="dl-horizontal icon-key">
+            <dt>
+              <span class="flag_as_left_icon"></span>
+            </dt>
+            <dd>
+              Mark that a user has left, or became inactive in, the <%= t('project').downcase %> on a given date.
+              This will allow the user's contributions to the project to be managed by the project's asset housekeeper. It won't remove them from the <%= t('project').downcase %>.
+            </dd>
+            <dt>
+              <span class="unflag_as_left_icon"></span>
+            </dt>
+            <dd>
+              Unmark that a user has left, or became inactive in, the <%= t('project').downcase %>.
+            </dd>
+            <dt>
+              <span class="remove_member_icon"></span>
+              </dt>
+            <dd>
+              Remove the user from the <%= t('project').downcase %>.
+            </dd>
+            <dt>
+              <span class="undo_icon"></span>
+            </dt>
+            <dd>
+              Undo a change.
+            </dd>
+          </dl>
+        <% end %>
+        <div id="project_institutions"></div>
+    <% end %>
+
+    <div class="modal" id="leaving-date-form" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Flag as inactive in the <%= t('project').downcase %></h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Date became inactive at</label>
+              <%= text_field_tag :leaving_date, Date.today, data: { calendar: 'mixed' }, :class => "calendar form-control" -%>
+              <input id="leaving-person-id" type="hidden" value=""/>
+              <input id="leaving-person-name" type="hidden" value=""/>
+              <input id="leaving-person-institution-id" type="hidden" value=""/>
+              <input id="leaving-person-institution-title" type="hidden" value=""/>
+              <input id="leaving-membership-id" type="hidden" value=""/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="confirm-leaving" type="button" class="btn btn-primary">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= form_tag(update_members_project_path(@project)) do %>
+        <%= panel("Pending changes") do %>
+            <ul id="change-list"></ul>
+            <div id="empty-change-list" class="subtle">No changes</div>
+            <%= button_link_to 'Undo all changes', 'undo', '#', :class => 'btn-sm pull-right', :id => 'undo-all' %>
+        <% end %>
+        <%= submit_tag "Confirm membership changes", :class => 'btn btn-primary' %>
+    <% end -%>
+  </div>
+</div>
+
+<script>
+    <%# TODO: Do this in a better way: %>
+    Projects.memberships = <%=
+
+    project_membership_json(@project).html_safe
+     %>;
+    $j(document).ready(function () {
+        Projects.renderMemberships();
+    });
+</script>
+
+<br/>
+
+<% if @project.people.empty? %>
+  <p class='alert alert-info'>
+    This <%= t('project') %> currently has no members to assign to role.<br/>
+    To add people to the <%= t('project') %>, see above<%#= link_to "Administer #{t('project')} members",admin_members_project_path(@project) %>.
+  </p>
+<% else %>
+    <div class="row">
+      <div class="col-md-8">
+        <p class='alert alert-info'>
+          These are specialist roles for members of the <%= t('project') %> that gives them special abilities and permissions. For more information about these roles, please read
+          the <%= help_link :roles,link_text:'Roles help document' %>
+          <br/>
+          Start to type the name of the person you wish to assign to a role. They need to already be a member of the <%= t('project') %>.
+        </p>
+        <%= form_tag(update_members_project_path(@project)) do %>
+            <%= panel('Administrative Roles') do %>
+                <%= label_tag("#{t('project_administrator').pluralize}") %>
+                <%= project_administrators_input_box(@project) %>
+
+                <%= label_tag("#{t('asset_gatekeeper').pluralize}") %>
+                <%= project_asset_gatekeepers_input_box(@project) %>
+
+                <%= label_tag("#{t('asset_housekeeper').pluralize}") %>
+                <%= project_asset_housekeepers_input_box(@project) %>
+
+                <% if admin_logged_in? %>
+                    <label><%= "#{t('pal').pluralize}" %></label>
+                    <%= project_pals_input_box(@project) %>
+                <% end %>
+            <% end %>
+            <%= submit_tag "Confirm member roles changes", :class => 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+

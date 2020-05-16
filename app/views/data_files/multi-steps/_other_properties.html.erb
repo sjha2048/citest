@@ -1,0 +1,25 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    Other associated items
+  </div>
+  <div class='panel-body'>
+    <%= render :partial => 'assets/attribution_form', :locals => {:resource_class => DataFile,
+                                                                  :existing_attributions => [], collapsed: false} -%>
+    <%= f.fancy_multiselect :publications, { hidden: false, other_projects_checkbox: true } %>
+
+    <%= fancy_multiselect @data_file, :events, { hidden: false, other_projects_checkbox: true } if Seek::Config.events_enabled %>
+
+    <div class='multi-step-buttons'>
+      <%= multi_step_start_button %>
+      <%= multi_step_back_button %>
+      <%= submit_tag 'Create',
+                     :id => 'data_file_submit_btn',
+                     :onclick => "javascript: previewPermissions(); return(false);",
+                     :class => 'btn btn-primary' -%>
+    </div>
+
+    <%= cancel_button(data_files_path) -%>
+  </div>
+</div>
+
+<%= preview_permission_popup_link(@data_file) %>

@@ -1,0 +1,40 @@
+<h1>New <%= t('presentation') %></h1>
+
+<%= form_tag({:action => :create}, :multipart => true) do -%>
+    <div class="asset_form">
+      <%= error_messages_for :presentation -%>
+
+      <%= render :partial=>"assets/upload_box",:locals=>{:resource=>@presentation} -%>
+
+      <div class="form-group">
+        <label class="required">Title</label>
+        <% presentation_title_value = (params[:presentation].blank? || params[:presentation][:title].blank?) ? nil : params[:presentation][:title] -%>
+        <%= text_field_tag "presentation[title]", presentation_title_value, :class=>"form-control" -%>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <% presentation_description_value = (params[:presentation].blank? || params[:presentation][:description].blank?) ? nil : params[:presentation][:description] -%>
+        <%= text_area_tag "presentation[description]", presentation_description_value,:class=>"form-control" -%>
+      </div>
+
+      <%= render :partial => "projects/project_selector", :locals => { :resource => @presentation, :allow_nil => Seek::Config.is_virtualliver } -%>
+
+      <%= render :partial => "scales/scales_selector",:locals=>{:object=>@presentation} if show_scales?%>
+
+      <%= render :partial => 'assets/license_selector', :locals => { :resource => @presentation } %>
+
+      <%= fields_for(@presentation) {|f|  f.hidden_field :parent_name } -%>
+
+      <%= fields_for(@presentation) {|f| render :partial=>"assets/asset_form_bottom", :locals=> {:f => f}} -%>
+
+      <%= fancy_multiselect @presentation, :events, { other_projects_checkbox: true } if Seek::Config.events_enabled %>
+      <div>
+        <%= preview_permission_popup_link(@presentation)-%>
+        <%= create_button :id => "presentation_submit_btn",
+                       :onclick => "javascript: validateResourceFields(true,'presentation',true); return(false);",
+                       :class => 'btn btn-primary' -%>
+        or <%= cancel_button(presentations_path) -%>
+      </div>
+    </div>
+<% end -%>

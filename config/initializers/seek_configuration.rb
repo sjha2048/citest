@@ -1,0 +1,1 @@
+seek_configuration.rb-openseek

@@ -1,0 +1,12 @@
+Hi <%= @name %>,
+
+You have just joined one or more <%= t('project').pluralize %>.
+
+You have been assigned to the following <%= t('project').pluralize(@projects.size) %>:
+<% @projects.each do |project| %>
+    * <%= project.title %> - <%= project_url(project) %>
+<% end %>
+
+Regards,
+
+- The <%= Seek::Config.dm_project_name %> Team

@@ -1,0 +1,81 @@
+<%
+   admin_or_me = (current_user.try(:person) == @person || admin_logged_in?)
+%>
+
+
+<%= render :partial => "general/item_title", :locals => {:item=>@person, :buttons_partial => 'people/buttons'} %>
+
+<div class="row">
+  <div class="col-md-9 col-sm-8 box_about_actor">
+    <%= item_description @person.description,:label=>"About #{@person.name}" %>
+
+    <div class="row">
+      <div class="col-md-6">
+<!-- DB commented next line out which represents the "SEEK ID:" in the profile view (requested by MB) -->
+        <%#= persistent_resource_id(@person) %>
+        <p>
+          <% locations = @person.locations -%>
+          <% unless locations.empty? -%>
+              <b><%= locations.length == 1 ? 'Location' : 'Locations' %>:</b>
+              <% locations.each do |location| %>
+                  <%= flag_icon(location) %>
+                  <%= link_to(location, country_path(location)) -%><%= ', ' unless location == locations.last -%>
+              <% end -%>
+          <% else -%>
+              <b>Location:</b>
+              <span class="none_text">Not known</span>
+          <% end -%>
+        </p>
+        <p>
+          <b>Disciplines:</b>
+          <%= discipline_list(@person.disciplines) %>
+        </p>
+        <%#= render :partial=>"areas_of_expertise", :locals => {:person=>@person} %>
+	<%= render :partial=>"expertise_areas", :locals => {:person=>@person} %>	
+
+        <p>
+          <b>ORCID:</b>
+          <%= orcid_identifier(@person) -%>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <% if admin_or_me %>
+          <p>
+            <span class='none_text'>Only shown to you and administrators</span>
+          </p>
+          <% if !@person.user.nil? && @person.user.login %>
+              <p>
+                <b>Login name:</b>
+                <%= h @person.user.login %>
+              </p>
+          <% end %>
+          <p>
+            <b>Joined:</b>
+            <%= @person.registered? ? date_as_string(@person.user.created_at, true) : 'This person has not yet registered' -%>
+          </p>
+        <% end %>
+        <%= render :partial=>"proficient_tools", :locals=>{:person=>@person} %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-3 col-sm-4">
+    <%= render :partial => "layouts/contribution_section_box_avatar", :locals => {:object => @person} -%>
+    <%= render :partial => "personal_tags", :locals=>{:person=>@person} if Seek::Config.tagging_enabled %>
+  </div>
+</div>
+<div class="row">
+  <% unless hide_contact_details?(@person) %>
+      <div class="col-md-6">
+        <%= render :partial=>"contact_details" %>
+      </div>
+  <% end %>
+  <div class="col-md-6">
+    <%= render :partial=>"project_positions" %>
+  </div>
+</div>
+<%= render :partial=>"people/project_subscriptions",:locals => {:person=>@person} if (mine?(@person) || current_user.try(:person).try(:is_admin?))  %>
+
+<%# get, classify and authorize all assets for this person's user (assets belong to users, not people!) -%>
+<%= render :seek_partial=>"general/items_related_to", :object => @person %>

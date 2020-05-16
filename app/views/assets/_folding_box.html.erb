@@ -1,0 +1,6 @@
+<% hidden ||= false
+   contents ||= nil %>
+
+<%= folding_panel(fold_title, hidden, :id => fold_id) do %>
+  <%= contents || yield %>
+<% end %>

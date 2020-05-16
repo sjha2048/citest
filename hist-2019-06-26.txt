@@ -1,0 +1,1000 @@
+   48  cd ..
+   49  ls -l
+   50  grep -rnw "stylescript.sh"
+   51  grep -rnw "stylescript"
+   52  ls assets/
+   53  ls assets/stylesheets/ -la
+   54  ls assets/images/ -la
+   55  ls 
+   56  cd ../public/
+   57  ls -l
+   58  grep -rnw "stylescript" 
+   59  grep -rnw "stylescript" .
+   60  cd ../app/
+   61  grep -rnw "stylescript" .
+   62  cd assets/
+   63  ls -l
+   64  ls -lh
+   65  ls stylesheets/
+   66  ls images/
+   67  cd ../../
+   68  ls 
+   69  ls ./stylescript.sh 
+   70  cd app/assets/
+   71  cd stylesheets/
+   72  ls -l
+   73  cd new_
+   74  vi new_
+   75  vi new_colors.css 
+   76  exit
+   77  cd /srv/rails/seek4/app/assets/stylesheets/
+   78  vi new_colors.css 
+   79  view new_colors.css 
+   80  cd /srv/rails/seek4/app/assets/stylesheets/
+   81  vi new_colors.css 
+   82  cd /../../
+   83  pwd
+   84  cd /srv/rails/seek4/
+   85  ls 
+   86  ./stylescript.sh 
+   87  pwd
+   88  cd /srv/rails/seek4/app/assets/stylesheets/
+   89  ls 
+   90  vi new_colors.css 
+   91  pwd 
+   92  cd /srv/rails/seek4/app/assets/stylesheets/
+   93  vi new_colors.css 
+   94  cd /srv/rails/seek4/
+   95  ls
+   96  ./stylescript.sh 
+   97  pwd
+   98  cd app/assets/stylesheets/
+   99  vi new_co
+  100  vi new_colors.css 
+  101  docker cp /srv/rails/seek4/app/views/
+  102  pwd
+  103  docker cp /srv/rails/seek4/app/views/users/new.html.erb seekfix:/seek4/app/views/users/new.html.erb
+  104  docker container ls
+  105  docker cp /srv/rails/seek4/app/views/users/new.html.erb seekcolors:/seek4/app/views/users/new.html.erb
+  106  docker container ls
+  107  pwd
+  108  cd ../../views/homes/
+  109  vi _home_contents_test.html.erb 
+  110  vi _home_contents.html.erb 
+  111  docker cp seekcolors:/seek4/app/views/homes/_home_contents.html.erb /srv/rails/seek4/app/views/homes/_home_contents.html.erb
+  112  cd ../../assets/stylesheets/
+  113  ls
+  114  vi new_colors.css 
+  115  cd /srv/rails/seek4
+  116  ./stylescript.sh 
+  117  pwd
+  118  cd ./app/assets/stylesheets/
+  119  ls
+  120  vi new_colors.css 
+  121  ls
+  122  ls -l
+  123  ls -la
+  124  exit
+  125  ls
+  126  cd /srv/rails/seek4
+  127  ls
+  128  vim app/assets/stylesheets/new_colors.css 
+  129  ./stylescript.sh 
+  130  docker exec -u 0 -it seekcolors bash
+  131  ls
+  132  vim app/assets/stylesheets/new_colors.css 
+  133  vim commitscript.sh 
+  134  vim stylescript.sh 
+  135  ./stylescript.sh 
+  136  vim stylescript.sh 
+  137  ./stylescript.sh 
+  138  vim stylescript.sh 
+  139  ./stylescript.sh 
+  140  vim stylescript.sh 
+  141  docker exec -u 0 -it seekcolors bash
+  142  service nginx status
+  143  systemctl status nginx
+  144  sudo systemctl reload nginx
+  145  /etc/init.d/nginx restart
+  146  vim docker-compose
+  147  vim docker-compose.yml
+  148  vim Dockerfile 
+  149  docker exec -u 0 -it seekcolors bash
+  150  ls
+  151  vim stylescript.sh 
+  152  vim app/assets/stylesheets/
+  153  vim app/assets/stylesheets/new_colors.css 
+  154  ./stylescript.sh 
+  155  clear
+  156  ./stylescript.sh 
+  157  ls
+  158  vim app/assets/stylesheets/
+  159  vim app/assets/stylesheets/new_colors.css 
+  160  ./stylescript.sh 
+  161  vim app/assets/stylesheets/
+  162  vim app/assets/stylesheets/new_colors.css 
+  163  vim app/views/documents/new.html.erb 
+  164  docker cp app/views/documents/new.html.erb seekcolors:/seek4/app/views/documents/
+  165  vim app/assets/stylesheets/new_colors.css 
+  166  ./stylescript.sh 
+  167  vim app/assets/stylesheets/new_colors.css 
+  168  ./stylescript.sh 
+  169  vim stylescript.sh 
+  170  ./stylescript.sh 
+  171  vim stylescript.sh 
+  172  ./stylescript.sh 
+  173  vim stylescript.sh 
+  174  ./stylescript.sh 
+  175  clear
+  176  vim app/views/layouts/navbar/_user_menu.html.erb 
+  177  docker cp app/views/layouts/navbar/_user_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/
+  178  vim app/views/layouts/navbar/_user_menu.html.erb 
+  179  docker cp app/views/layouts/navbar/_user_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/
+  180  vim app/views/layouts/navbar/_user_menu.html.erb 
+  181  ./commitscript.sh 
+  182  vim stylescript.sh 
+  183  vim app/assets/stylesheets/new_colors.css 
+  184  vim app/views/layouts/navbar/_user_menu.html.erb 
+  185  docker cp app/views/layouts/navbar/_user_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/
+  186  vim app/views/layouts/navbar/_user_menu.html.erb 
+  187  docker cp app/views/layouts/navbar/_user_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/
+  188  vim app/views/documents/edit.html.erb 
+  189  docker cp app/views/documents/edit.html.erb seekcolors:/seek4/app/views/documents/
+  190  vim app/views/layouts/navbar/_user_menu.html.erb 
+  191  ./commitscript.sh 
+  192  vim app/views/assets/_asset_buttons.html.erb 
+  193  cd app/views/assets/
+  194  ls
+  195  vim app/views/assets/_asset_buttons.html.erb 
+  196  vim _asset_form_bottom.html.erb 
+  197  vim app/views/assets/_asset_buttons.html.erb 
+  198  vim _asset_form_bottom.html.erb 
+  199  vim _asset_buttons.html.erb 
+  200  docker cp _asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  201  cd ..
+  202  vim app/views/assets/_asset_buttons.html.erb 
+  203  cd app/views/assets/
+  204  ls
+  205  vim _upload_new_version_form.html.erb 
+  206  vim ../sharing/_form.html.erb 
+  207  vim _asset_buttons.html.erb 
+  208  vim _asset_form_bottom.html.erb 
+  209  docker cp _asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  210  vim _asset_form_bottom.html.erb 
+  211  vim _asset_buttons.html.erb 
+  212  docker cp _asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  213  cd ..
+  214  cd app/views/documents/
+  215  vim show.
+  216  vim show.html.erb 
+  217  cd ..
+  218  grep -rnw "sharing/form" .
+  219  vim app/views/documents/
+  220  vim app/views/documents/show.html.erb 
+  221  vim app/views/assets/_asset_buttons.html.erb 
+  222  vim app/views/documents/show.html.erb 
+  223  vim app/views/assets/_asset_buttons.html.erb 
+  224  vim app/views/documents/show.html.erb 
+  225  grep -rnw "sharing/form" .
+  226  vim app/views/sharing/_form.html.erb 
+  227  vim app/views/documents/show.html.erb 
+  228  docker cp app/views/documents/show.html.erb seekcolors:/seek4/app/views/documents/
+  229  grep -rnw "def avatar" .
+  230  vim app/views/layouts/navbar/_user_menu.html.erb 
+  231  docker cp app/views/layouts/navbar/_user_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/
+  232  ./commitscript.sh 
+  233  vim app/views/assets/_asset_buttons.html.erb 
+  234  vim app/views/assets/_asset_form_bottom.html.erb 
+  235  vim app/views/assets/_asset_buttons.html.erb 
+  236  vim app/views/documents/show.html.erb 
+  237  vim app/views/assets/_asset_buttons.html.erb 
+  238  grep -rnw ":toggle_appear" .
+  239  vim app/assets/stylesheets/new_colors.css 
+  240  vim app/views/assets/_asset_buttons.html.erb 
+  241  docker cp app/views/assets/_asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  242  vim app/views/documents/show.html.erb 
+  243  vim app/views/sharing/_form.html.erb 
+  244  cp app/views/sharing/_form.html.erb app/views/assets/_sharing_form.html.erb
+  245  vim app/views/assets/_asset_buttons.html.erb 
+  246  cd app/views/assets/
+  247  ls
+  248  vim _sharing_form.html.erb 
+  249  vim _asset_buttons.html.erb 
+  250  docker cp _sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  251  docker cp _asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  252  cd ..
+  253  vim documents/show.html.erb 
+  254  vim assets/_sharing_
+  255  vim assets/_sharing_form.html.erb 
+  256  vim documents/show.html.erb 
+  257  vim assets/_sharing_form.html.erb 
+  258  vim documents/show.html.erb 
+  259  docker cp documents/show.html.erb seekcolors:/seek4/app/views/documents/
+  260  cd ..
+  261  ./stylescript.sh 
+  262  vim app/views/documents/show.html.erb 
+  263  vim app/views/people/show.html.erb 
+  264  vim app/views/documents/show.html.erb 
+  265  vim app/views/documents/show.
+  266  vim app/views/documents/show.html.erb 
+  267  vim app/views/assets/_asset_buttons.html.erb 
+  268  vim app/views/documents/show.html.erb 
+  269  docker cp app/views/documents/show.html.erb seekcolors:/seek4/app/views/documents/
+  270  vim app/assets/stylesheets/new_colors.css 
+  271  ./stylescript.sh 
+  272  cd ..
+  273  clear
+  274  cd ..
+  275  cd rails/
+  276  ls
+  277  cd seek4
+  278  ls
+  279  vim stylescript.sh 
+  280  vim app/views/documents/show.html.erb 
+  281  docker cp app/views/documents/show.html.erb seekcolors:/seek4/app/views/documents/
+  282  vim app/views/documents/edit.html.erb 
+  283  vim app/views/assets/_asset_form_bottom.html.erb 
+  284  vim app/views/sharing/_form.html.erb 
+  285  vim app/views/layouts/navbar/_user_menu.html.erb 
+  286  docker cp  app/views/layouts/navbar/_user_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/
+  287  vim app/views/assets/
+  288  cd app/views/assets/
+  289  ls
+  290  vim _upload_new_version_form.html.erb 
+  291  vim ../documents/edit.html.erb 
+  292  vim _sharing_
+  293  vim _sharing_form.html.erb 
+  294  vim ../documents/edit.html.erb 
+  295  vim _sharing_form.html.erb 
+  296  vim ../documents/edit.html.erb 
+  297  vim _sharing_form.html.erb 
+  298  vim ../sharing/_permissions_table.html.erb 
+  299  vim ../sharing/
+  300  vim ../sharing/_person_permission_modal.html.erb 
+  301  cd ..
+  302  vim assets/stylesheets/new_colors.css 
+  303  .././stylescript.sh 
+  304  vim assets/stylesheets/new_colors.css 
+  305  .././stylescript.sh 
+  306  clear
+  307  vim views/documents/edit.html.erb 
+  308  vim views/assets/_sharing_form.html.erb 
+  309  vim views/documents/edit.html.erb 
+  310  vim views/assets/_sharing_form.html.erb 
+  311  vim views/documents/edit.html.erb 
+  312  vim views/assets/_sharing_form.html.erb 
+  313  docker cp views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  314  cd ..
+  315  vim views/assets/_sharing_form.html.erb 
+  316  vim app/views/assets/_sharing_form.html.erb 
+  317  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  318  ./commitscript.sh 
+  319  ls
+  320  vim app/views/assets/_sharing_form.html.erb 
+  321  vim app/views/documents/edit.html.erb 
+  322  vim app/views/assets/_sharing_form.html.erb 
+  323  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  324  vim app/views/assets/_sharing_form.html.erb 
+  325  vim app/views/assets/_asset_buttons.html.erb 
+  326  docker cp app/views/assets/_asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  327  ./commitscript.sh 
+  328  vim app/views/assets/_asset_buttons.html.erb 
+  329  vim app/views/assets/_sharing_form.html.erb 
+  330  vim app/views/documents/edit.html.erb 
+  331  vim app/views/assets/_sharing_form.html.erb 
+  332  vim app/views/assets/_upload_
+  333  vim app/views/assets/
+  334  vim app/views/assets/_upload_new_version_form.html.erb 
+  335  grep -rnw "form_tag" .
+  336  vim app/views/documents/edit.html.erb 
+  337  vim app/views/assets/_upload_new_version_form.html.erb 
+  338  grep -rnw "update_version" .
+  339  vim lib/explicit_versioning.rb 
+  340  vim app/views/assets/_sharing_form.html.erb 
+  341  vim app/models/document.rb 
+  342  vim app/views/documents/edit.html.erb 
+  343  vim app/views/assets/_sharing_form.html.erb 
+  344  grep -rnw "update_home_settings".
+  345  vim app/views/assets/_sharing_form.html.erb 
+  346  :wq
+  347  vim app/views/assets/_sharing_form.html.erb 
+  348  vim app/views/assets/_upload_new_version_form.html.erb 
+  349  vim app/views/assets/_sharing_form.html.erb 
+  350  vim app/views/assets/_upload_new_version_form.html.erb 
+  351  vim app/views/assets/_sharing_form.html.erb 
+  352  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  353  vim app/views/assets/_sharing_form.html.erb 
+  354  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  355  ./commitscript.sh 
+  356  vim app/assets/stylesheets/new_colors.css 
+  357  vim app/views/assets/_sharing_form.html.erb 
+  358  ./commitscript.sh 
+  359  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  360  ./commitscript.sh 
+  361  vim app/views/assets/_sharing_form.html.erb 
+  362  grep -rnw "form_tag" .
+  363  vim app/views/assets/_sharing_form.html.erb 
+  364  :q
+  365  vim app/views/assets/_sharing_form.html.erb 
+  366  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  367  ./commitscript.sh 
+  368  clear
+  369  grep -rnw "form_tag" .
+  370  vim app/views/models/new.html.erb
+  371  vim app/views/assets/_upload_new_version_form.html.erb 
+  372  vim app/views/assets/_sharing_form.html.erb 
+  373  grep -rnw "hidden_tag" .
+  374  grep -rnw "hidden" .
+  375  cd app/
+  376  grep -rnw "hidden" .
+  377  vim views/advanced_searches/new.html.erb 
+  378  cd ..
+  379  vim app/views/assets/_sharing_form.html.erb 
+  380  vim views/advanced_searches/new.html.erb 
+  381  vim app/views/advanced_searches/new.html.erb 
+  382  vim views/advanced_searches/new.html.erb 
+  383  vim app/views/assets/_sharing_form.html.erb 
+  384  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  385  vim app/views/assets/_sharing_form.html.erb 
+  386  grep -rnw "hidden_field" .
+  387  vim app/views/assets/_sharing_form.html.erb 
+  388  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  389  ./commitscript.sh 
+  390  ls
+  391  vim app/views/assets/_sharing_form.html.erb 
+  392  vim app/views/documents/edit.html.erb 
+  393  vim app/views/assets/_sharing_form.html.erb 
+  394  vim app/views/documents/edit.html.erb 
+  395  vim app/views/assets/_sharing_form.html.erb 
+  396  ./commitscript.sh 
+  397  vim app/views/assets/_sharing_form.html.erb 
+  398  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  399  vim app/views/assets/_sharing_form.html.erb 
+  400  grep -rnw "hidden_field" .
+  401  vim app/views/assets/_sharing_form.html.erb 
+  402  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  403  ./commitscript.sh 
+  404  grep -rnw form_tag .
+  405  vim app/views/assets/_sharing_form.html.erb 
+  406  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  407  ./commitscript.sh 
+  408  vim app/views/assets/_sharing_form.html.erb 
+  409  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  410  ./commitscript.sh 
+  411  vim app/controllers/documents_controller.rb 
+  412  vim app/views/assets/_sharing_form.html.erb 
+  413  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  414  ./commitscript.sh 
+  415  ls
+  416  vim app/views/documents/show.html.erb 
+  417  vim app/views/assets/_asset_buttons.html.erb 
+  418  vim app/views/assets/_sharing_
+  419  vim app/views/assets/_sharing_form.html.erb 
+  420  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  421  ./commitscript.sh 
+  422  vim app/views/assets/_sharing_form.html.erb 
+  423  vim app/controllers/documents_controller.rb 
+  424  vim app/views/assets/_sharing_form.html.erb 
+  425  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  426  ./commitscript.sh 
+  427  vim app/views/assets/_sharing_form.html.erb 
+  428  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  429  ./commitscript.sh 
+  430  ls
+  431  vim app/views/assets/_sharing_
+  432  vim app/views/assets/_sharing_form.html.erb 
+  433  vim app/views/documents/edit.html.erb 
+  434  vim app/views/assets/_sharing_form.html.erb 
+  435  vim app/views/assets/_asset_form_bottom.html.erb 
+  436  vim app/views/assets/_sharing_form.html.erb 
+  437  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  438  ./commitscript.sh 
+  439  ls
+  440  vim app/views/assets/_sharing_form.html.erb 
+  441  vim app/controllers/documents_controller.rb
+  442  vim app/views/assets/_upload_new_version_form.html.erb 
+  443  vim app/controllers/documents_controller.rb
+  444  vim app/views/assets/_sharing_form.html.erb 
+  445  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  446  vim app/views/assets/_sharing_form.html.erb 
+  447  vim app/views/assets/_upload_new_version_form.html.erb 
+  448  vim app/views/assets/_sharing_form.html.erb 
+  449  docker cp app/views/assets/_sharing_form.html.erb seekcolors:/seek4/app/views/assets/
+  450  ./commitscript.sh 
+  451  ls
+  452  vim app/views/documents/show.html.erb 
+  453  vim app/views/assets/_asset_buttons.html.erb 
+  454  docker cp app/views/assets/_asset_buttons.html.erb seekcolors:/seek4/app/views/assets/
+  455  docker cp app/views/documents/show.html.erb seekcolors:/seek4/app/views/documents/
+  456  docker exec -u 0 -it seekcolors bash
+  457  ls
+  458  ./commitscript.sh
+  459  ls
+  460  cd app/assets/
+  461  ls
+  462  cd images/
+  463  ls
+  464  cd avatars/
+  465  ls
+  466  cd ..
+  467  ls
+  468  cd logos/
+  469  ls
+  470  cd ..
+  471  cd front_page/
+  472  ls
+  473  cd ..
+  474  cd avatars/
+  475  ls
+  476  cd ..
+  477  ls
+  478  cd ..
+  479  ls
+  480  cd ..
+  481  docker build -t "seekcolors" .
+  482  docker image
+  483  docker images
+  484  docker-compose down
+  485  docker-compose up -d
+  486  docker exec -u 0 -it seekcolors bash
+  487  ls
+  488  vim app/assets/stylesheets/new_colors.css 
+  489  ./stylescript.sh 
+  490  ls
+  491  vim app/assets/stylesheets/new_colors.css 
+  492  ./stylescript.sh 
+  493  clear
+  494  exit
+  495  cd /srv/rails/seek4
+  496  ./stylescript.sh 
+  497  pwd
+  498  cd app/assets/
+  499  cd ../views/
+  500  ls 
+  501  grep -rnw "Sign up" .
+  502  vi users/new.html.erb 
+  503  cd /srv/rails/seek4
+  504  ./stylescript.sh 
+  505  pwd
+  506  cd app/views/users/
+  507  vi new.html.erb 
+  508  pwd
+  509  cd ../homes/
+  510  ls
+  511  cp _home_contents.html.erb _home_contents_test.html.erb
+  512  vi _home_contents_test.html.erb 
+  513  docker exec -u 0 -it seekcolors bash
+  514  cd /srv/rails/seek4/app/assets/
+  515  vi stylesheets/new_colors.css 
+  516  ls
+  517  clear
+  518  ls
+  519  cd /srv/rails/seek4
+  520  ls
+  521  git branch 
+  522  git add .
+  523  git status
+  524  git commit -m "Edit scripts, site styles" .
+  525  ls
+  526  docker exec -u 0 -it seekcolors bash
+  527  ls
+  528  git push origin master
+  529  pwd
+  530  ls =l
+  531  ls =;
+  532  ls -l
+  533  cd /srv/rails/seek4/app/assets/stylesheets/
+  534  cd ../../..
+  535  ls
+  536  pwd
+  537  ./stylescript.sh 
+  538  pwd
+  539  ls
+  540  pwd
+  541  ./stylescript.sh 
+  542  pwd
+  543  ./stylescript.sh 
+  544  cd /srv/rails/seek4/app/assets/stylesheets/
+  545  vi new_colors.css 
+  546  cd /srv/rails/seek4
+  547  ./stylescript.sh 
+  548  pwd
+  549  cd app/assets/stylesheets/
+  550  vi new_colors.css 
+  551  ls -l
+  552  exit
+  553  pwd
+  554  cd /srv/rails/seek4/app/assets/stylesheets/
+  555  ls
+  556  ls -l
+  557  pwd 
+  558  quit
+  559  exit
+  560  pw
+  561  dpwd
+  562  pwd
+  563  cd /srv/rails/seek4/app/assets/
+  564  ls stylesheets/
+  565  vi new_colo
+  566  ls 
+  567  cd stylesheets/
+  568  vi new_colors.css 
+  569  pwd
+  570  cd /srv/rails/seek4/app/assets/stylesheets/
+  571  vi new_colors.css 
+  572  pwd
+  573  vi new_colors.css 
+  574  ls -la
+  575  rm .new_colors.css.swp 
+  576  vi new_colors.css 
+  577  pwd
+  578  vi new_colors.css 
+  579  pwd
+  580  cd /srv/rails/seek4/
+  581  pwd
+  582  cd app/assets/
+  583  cd stylesheets/
+  584  ls
+  585  vi new_colors.css 
+  586  cd /srv/rails/seek4
+  587  ./stylescript.sh 
+  588  cd /srv/rails/seek4/app/views/layouts/navbar/
+  589  ls -l
+  590  docker exec -u 0 -it seekcolors bash
+  591  pwd
+  592  docker exec -u 0 -it seekcolors bash
+  593  ls
+  594  pwd
+  595  docker exec -u 0 -it seekcolors bash
+  596  exit
+  597  cd /srv/rails/seek4/app/assets/stylesheets/
+  598  vi new_colors.css 
+  599  ls -l
+  600  vi new_colors.css 
+  601  exit
+  602  cd /srv/rails/seek4
+  603  ls -l
+  604  ./stylescript.sh 
+  605  pwd
+  606  ./stylescript.sh 
+  607  pwd
+  608  ls 
+  609  pwd
+  610  ./stylescript.sh 
+  611  pwd
+  612  exit
+  613  cd /srv/rails/seek4
+  614  ./stylescript.sh 
+  615  docker cp seekcolors:/seek4/app/views/layouts/navbar_browse_menu.html.erb /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  616  docker ls 
+  617  docker container ls
+  618  docker cp seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  619  pwd
+  620  ls 
+  621  ./stylescript.sh 
+  622  docker cp seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  623  ./stylescript.sh 
+  624  cd /srv/rails/seek4/app/views/layouts/navbar/
+  625  ls
+  626  vi _browse_menu.html.erb 
+  627  docker exec -u 0 -it seekcolors bash
+  628  vi _browse_menu.html.erb 
+  629  la
+  630  la 
+  631  ls 
+  632  vi _create_menu.html.erb 
+  633  cd /srv/rails/seek4/app/
+  634  cd assets/stylesheets/
+  635  ls
+  636  vi new_colors.css 
+  637  ls 
+  638  vi new_colors.css 
+  639  owd
+  640  cd /srv/rails/seek4/app/views/layouts/navbar/
+  641  ls 
+  642  vi _navbar.html.erb 
+  643  vi _brows
+  644  vi _browse_menu.html.erb 
+  645  ls -la
+  646  vi _create_menu.html.erb 
+  647  vi _browse_menu.html.erb 
+  648  ls
+  649  vi _navbar.html.erb 
+  650  vi _browse_menu.html.erb 
+  651  docker cp /srv/rails/seek4/pathtothelocalfile seeklooks:/seek4/pathtothesamefile  
+  652  ocker cp /srv/rails/seek4/pathtothelocalfile seeklooks:/seek4/pathtothesamefile  
+  653  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  654  docker cp /srv/rails/seek4/app/views/layouts/navbar/_navbar.html.erb seekcolors:/seek4/app/views/layouts/navbar/_navbar.html.erb
+  655  pwd
+  656  vi _create_menu.html.erb 
+  657  ls
+  658  ls -l
+  659  docker cp /srv/rails/seek4/app/views/layouts/navbar/_navbar.html.erb seekcolors:/seek4/app/views/layouts/navbar/_navbar.html.erb
+  660  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  661  docker cp /srv/rails/seek4/app/views/layouts/navbar/_create_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_create_menu.html.erb
+  662  vi _create_menu.html.erb 
+  663  vi _navbar.html.erb 
+  664  docker cp /srv/rails/seek4/app/views/layouts/navbar/_navbar.html.erb seekcolors:/seek4/app/views/layouts/navbar/_navbar.html.erb
+  665  vi _navbar.html.erb 
+  666  vi _browse_menu.html.erb 
+  667  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  668  docker cp /srv/rails/seek4/app/views/layouts/navbar/_navbar.html.erb seekcolors:/seek4/app/views/layouts/navbar/_navbar.html.erb
+  669  pwd
+  670  docker cp /srv/rails/seek4/app/views/layouts/navbar/_create_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_create_menu.html.erb
+  671  ls -l
+  672  vi _search_bar.html.erb 
+  673  vi _user_menu.html.erb 
+  674  pwd
+  675  cd /srv/rails/seek4/app/assets/stylesheets/
+  676  vi new_colors.css 
+  677  cd /srv/rails/seek4
+  678  ./stylescript.sh 
+  679  pwd
+  680  ./stylescript.sh 
+  681  cd /srv/rails/seek4/app/assets/stylesheets/
+  682  ls 
+  683  vi new_colors.css 
+  684  git log
+  685  ls
+  686  cd /srv/rails/seek4/
+  687  ls
+  688  git log
+  689  ls
+  690  exit
+  691  cd /srv/rails/seek4/app/views/
+  692  cd layouts/navbar/
+  693  ls -l
+  694  vi _browse_menu.html.erb 
+  695  cp _browse_menu.html.erb _browse_menu_DB-not-working.html.erb
+  696  ls
+  697  ls -la
+  698  vi _create_menu.html.erb 
+  699  ls
+  700  ls -l
+  701  ls -lt
+  702  vi _dropdown_links.html.erb 
+  703  docker cp /srv/rails/seek4/app/views/layouts/navbar/_dropdown_links.html.erb seekcolors:/seek4/app/views/layouts/navbar/_dropdown_links.html.erb
+  704  ls -lt
+  705  vi _create_menu.html.erb 
+  706  docker cp /srv/rails/seek4/app/views/layouts/navbar/_create_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_create_menu.html.erb
+  707  vi _browse_menu.html.erb 
+  708  cd ../../../..
+  709  ls
+  710  cd app/
+  711  ls 
+  712  cd ..
+  713  ls
+  714  pwd
+  715  ./stylescript.sh 
+  716  pwd
+  717  cd app/views/layouts/navbar/
+  718  vi new_browse_recovered.html.erb
+  719  ls -lt
+  720  ls -t
+  721  ls -lt
+  722  cp new_browse_recovered.html.erb _browse_menu.html.erb 
+  723  ls -lt
+  724  rm new_browse_recovered.html.erb 
+  725  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  726  ls -lt
+  727  docker exec -u 0 -it seekcolors bash
+  728  exit
+  729  cd /srv/rails/seek4/app/assets/stylesheets/
+  730  ls
+  731  vi new_colors.css 
+  732  pwd
+  733  exit
+  734  cd /srv/rails/seek4
+  735  ./stylescript.sh 
+  736  pwd
+  737  ./stylescript.sh 
+  738  pwd
+  739  ./stylescript.sh
+  740  pwd
+  741  cd /srv/rails/seek4/app/views/layouts/
+  742  cd navbar/
+  743  ls
+  744  vi _dropdown_links.html.erb 
+  745  vi _search_bar.html.erb 
+  746  pwd
+  747  docker cp /srv/rails/seek4/app/views/layouts/navbar/_search_bar.html.erb seekcolors:/seek4/app/views/layouts/navbar/_search_bar.html.erb
+  748  vi _user_menu.html.erb 
+  749  ls 
+  750  vi _navbar.html.erb 
+  751  vi _browse_menu.html.erb 
+  752  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  753  vi _browse_menu.html.erb 
+  754  pwd
+  755  vi _navbar.html.erb 
+  756  vi _create_menu.html.erb 
+  757  docker cp /srv/rails/seek4/app/views/layouts/navbar/_create_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_create_menu.html.erb
+  758  vi _dropdown_links.html.erb 
+  759  docker cp /srv/rails/seek4/app/views/layouts/navbar/_dropdown_links.html.erb seekcolors:/seek4/app/views/layouts/navbar/_dropdown_links.html.erb
+  760  vi _browse_menu.html.erb 
+  761  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  762  vi _browse_menu.html.erb 
+  763  pwd
+  764  vi _browse_menu.html.erb 
+  765  docker cp /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  766  ls -la
+  767  cp _browse_menu.html.erb _browse_menu_DB-not-working.html.erb
+  768  docker container ls
+  769  docker ps -a
+  770  docker-compose down
+  771  cd /srv/rails/
+  772  ls
+  773  ls -l
+  774  cd seek4
+  775  docker-compose down
+  776  docker-compose up -d
+  777  docker ps
+  778  docker ls 
+  779  docker container ls
+  780  docker cp /srv/rails/seek4/pathtothelocalfile seeklooks:/seek4/pathtothesamefile  
+  781  docker cp /srv/rails/seek4/app/assets/stylesheets/new_colors.css seeklooks:/seek4/app/assets/stylesheets/new_colors.css
+  782  docker cp /srv/rails/seek4/app/assets/stylesheets/new_colors.css seekcolors:/seek4/app/assets/stylesheets/new_colors.css
+  783  cd /srv/rails/seek4/app/assets/stylesheets/
+  784  ls 
+  785  ls -lt
+  786  vi new_colors.css 
+  787  pwd
+  788  vi new_colors.css 
+  789  ls
+  790  cd /srv/rails/seek4/app/views/
+  791  ls -lat
+  792  cd layouts/
+  793  ls -lt
+  794  cd navbar/
+  795  ls -lt
+  796  docker cp ./_browse_menu.html.erb seekcolors:seek4/app/views/layouts/navbar/_browse_menu_DB-06-11.html.erb
+  797  docker cp ./_create_menu.html.erb seekcolors:seek4/app/views/layouts/navbar/_create_menu_DB-06-11.html.erb
+  798  docker cp ./_dropdown_links.html.erb seekcolors:seek4/app/views/layouts/navbar/_dropdown_links_DB-06-11.html.erb
+  799  docker cp ./_navbar.html.erb seekcolors:seek4/app/views/layouts/navbar/_navbar_DB-06-11.html.erb
+  800  docker cp ./_search_bar.html.erb seekcolors:seek4/app/views/layouts/navbar/_search_bar_DB-06-11.html.erb
+  801  ls
+  802  pwd
+  803  cd /srv/rails/seek4
+  804  ls -l
+  805  ./commitscript.sh 
+  806  pwd
+  807  cd app/assets/stylesheets/
+  808  vi new_colors.css 
+  809  ls -la
+  810  rm .new_colors.css.swp 
+  811  vim new_colors.css 
+  812  pwd
+  813  docker exec -u 0 -it seekcolors bash
+  814  ls
+  815  pwd
+  816  cd ../..
+  817  ls
+  818  cd ..
+  819  ls
+  820  ./commitscript.sh 
+  821  cd /srv/rails/seek4/
+  822  ls 
+  823  ./stylescript.sh 
+  824  pwd
+  825  docker cp /srv/rails/seek4/app/assets/stylesheets/new_colors.css seekcolors:/seek4/app/assets/stylesheets/new_colors.css
+  826  ./stylescript.sh 
+  827  pwd
+  828  ./stylescript.sh 
+  829  pwd
+  830  ./commitscript.sh 
+  831  pwd
+  832  cd app/views/layouts/navbar/
+  833  vim _navbar.html.erb 
+  834  ls la
+  835  ls -la
+  836  ls -lta
+  837  ls -lt
+  838  pwd
+  839  grep -rnw "Quick search"
+  840  vim _search_bar.html.erb 
+  841  cd /srv/rails/
+  842  ls
+  843  cd seek4/
+  844  docker ps -a
+  845  ls
+  846  grep -rnw rules
+  847  grep -rnw rules.cam.uchc.edu
+  848  ls
+  849  cd docker/
+  850  ls
+  851  vim nginx.conf 
+  852  docker exec -u 0 -it seekcolors bash
+  853  docker exec -u 0 -it seeklooks bash
+  854  docker exec -u 0 -it seekcolors bash
+  855  pwd
+  856  docker exec -u 0 -it seekcolors bash
+  857  pwd
+  858  cd /srv/rails/seek4/app/assets/stylesheets/
+  859  ls -lt
+  860  cp new_colors.css new_colors_working-z-index.css
+  861  ls -lt
+  862  docker cp seekcolors:/seek4/app/views/layouts/navbar/_browse_menu_working_06-13.html.erb /srv/rails/seek4/app/views/layouts/navbar/_browse_menu_working_06-13.html.erb
+  863  pwd
+  864  docker cp seekcolors:/seek4/app/views/layouts/navbar/_browse_menu.html.erb /srv/rails/seek4/app/views/layouts/navbar/_browse_menu.html.erb
+  865  pwd
+  866  docker cp seekcolors:/seek4/app/views/layouts/navbar/_navbar.html.erb /srv/rails/seek4/app/views/layouts/navbar/_navbar.html.erb 
+  867  vim new_colors.css 
+  868  docker cp seekcolors:/seek4/app/assets/stylesheets/new_colors.css /srv/rails/seek4/app/assets/stylesheets/new_colors.css 
+  869  docker cp seekcolors:/seek4/app/views/gadgets/_sign_in.html.erb /srv/rails/seek4/app/views/gadgets/_sign_in.html.erb 
+  870  ls -lt
+  871  ls -la
+  872  docker cp seekcolors:/seek4/app/views/gadgets/_sign_in_working-06-13.html.erb /srv/rails/seek4/app/views/gadgets/_sign_in_working-06-13.html.erb
+  873  cd /srv/rails/seek4
+  874  ./stylescript.sh 
+  875  pwd
+  876  cd app/assets/stylesheets/
+  877  ls -lt
+  878  vim new_colors.css 
+  879  docker cp new_colors.css seekcolors:/seek4/app/assets/stylesheets/new_colors.css
+  880  vim new_colors.css 
+  881  docker cp new_colors.css seekcolors:/seek4/app/assets/stylesheets/new_colors.css
+  882  vim new_colors.css 
+  883  docker cp new_colors.css seekcolors:/seek4/app/assets/stylesheets/new_colors.css
+  884  cd /srv/rails/seek4/app/views/
+  885  ls -lt
+  886  ls -lt homes/
+  887  grep -rnw "dropdown-menu"
+  888  cd layouts/navbar/
+  889  vim _browse_menu.html.erb 
+  890  ls
+  891  ls -lt
+  892  pwd
+  893  docker cp seeklooks:/seek4/app/assets/stylesheets/new_colors.css /srv/rails/seek4/app/assets/stylesheets/new_colors.css
+  894  docker cp seekcolors:/seek4/app/assets/stylesheets/new_colors.css /srv/rails/seek4/app/assets/stylesheets/new_colors.css
+  895  pwd
+  896  docker -u 0 -it exec seekcolors bash
+  897  docker exec -u 0 -it seekcolors bash
+  898  pwd
+  899  docker exec -u 0 -it seekcolors bash
+  900  cd /srv/rails/seek4
+  901  ls 
+  902  ./stylescript.sh 
+  903  pwd
+  904  ks
+  905  ls
+  906  ./stylescript.sh 
+  907  pwd
+  908  ./stylescript.sh 
+  909  pwd
+  910  ls -lt
+  911  ./commitscript.sh 
+  912  ls -lt
+  913  ./stylescript.sh 
+  914  ls 
+  915  ./stylescript.sh 
+  916  pwd
+  917  grep -rnw "login"
+  918  grep -rnw "Log in"
+  919  cd app/views/gadgets/
+  920  vim _sign_in.html.erb 
+  921  cd /srv/rails/seek4
+  922  ls
+  923  more commitscript.sh 
+  924  commitscript.sh 
+  925  ./commitscript.sh 
+  926  docker ps
+  927  ./commitscript.sh 
+  928  cd /srv/rails/seek4/
+  929  cd app/views/people/
+  930  ls
+  931  more index.html.erb 
+  932  more show.
+  933  more show.html.erb 
+  934  history > hist.2019.06.15.txt
+  935  more hist.2019.06.15.txt 
+  936   ls
+  937  more _expertise_areas.html.erb 
+  938  more _areas_of_expertise.html.erb 
+  939  grep -rwn institutions
+  940  more _resource_list_item.html.erb 
+  941  grep -rwn link_for_ann
+  942  cd ..
+  943  grep -rwn link_for_ann
+  944  cd ..
+  945  grep -rwn link_for_ann
+  946  more helpers/tags_helper.rb 
+  947  vim helpers/tags_helper.rb 
+  948  vim helpers/work_groups_helper.rb 
+  949  vim views/people/_project_positions.html.erb 
+  950  grep -rwn "other projects"
+  951  grep -rwn "Other Projects"
+  952  grep -rwn projects:
+  953  grep -rwn >br>
+  954  grep -rwn <br>
+  955  grep -rwn "<br>"
+  956  grep -rwn "<li>"
+  957   vim views/people/_areas_of_expertise.html.erb
+  958  cd /srv/rails/seek4
+  959  cd app/views/people/
+  960  ls
+  961  vim index.html.erb 
+  962  vim show.xml.builder 
+  963  vim show.html.erb 
+  964  grep -rnw "people index"
+  965  grep -rnw "People Index"
+  966  cd ../..
+  967  grep -rnw "People Index"
+  968  grep -rnw Index
+  969  grep -rnw index
+  970  cd ..
+  971  grep -rnw Index
+  972  grep -rnw Status
+  973  vim app/views/projects/_resource_list_item.html.erb
+  974  grep -rnw project_status
+  975  grep -rnw About
+  976  vim app/views/people/show.html.erb
+  977  grep rnw items_related_to
+  978  grep -rnw items_related_to
+  979  vim app/views/general/_items_related_to.html.erb
+  980  vim app/views/people/show.html.erb
+  981  cd /srv/rails/seek4/
+  982  ls
+  983  grep -rnw help-block
+  984  grep -rnw help-block | more
+  985  grep -rnw "following projects associated"
+  986  grep -rnw following projects associated
+  987  grep -rnw association-list-item
+  988  vim app/views/projects/_project_selector.html.erb
+  989  docker ps -a
+  990  docker exec -u 0 -it seekprod bash
+  991  ls
+  992  more stylescript.sh 
+  993  docker exec -u 0 -it seekprod bash
+  994  more commitscript.sh 
+  995  more docker-compose.yml
+  996  ./commitscript.sh 
+  997  ls
+  998  more stylescript.sh 
+  999  cd /srv/rails/seek4/
+ 1000  ls
+ 1001  more stylescript.sh 
+ 1002  docker exec -u 0 -it seekprod bash
+ 1003  vim app/assets/stylesheets/new_styles.scss 
+ 1004  ./stylescript.sh 
+ 1005  vim stylescript.sh 
+ 1006  ./stylescript.sh 
+ 1007  grep -rnw "If anyone not registered with Computational Biology Research Hub assisted with the contribution"
+ 1008  grep -rnw "If anyone not registered with"
+ 1009  more app/views/assets/_author_form.html.erb
+ 1010  ./stylescript.sh 
+ 1011  vim app/assets/stylesheets/new_styles.scss 
+ 1012  cd app/assets/stylesheets/
+ 1013  grepm -rnw form-control
+ 1014  grep -rnw form-control
+ 1015  more new_colors.css 
+ 1016  grep -rnw form-control
+ 1017  more bootstrap_include.scss 
+ 1018  vim bootstrap_include.scss 
+ 1019  grep -rnw form-control
+ 1020  vim new_colors_working-z-index.css 
+ 1021  ./stylescript.sh 
+ 1022  cd ../../..
+ 1023  ./stylescript.sh 
+ 1024  vim new_colors_working-z-index.css 
+ 1025  vim app/assets/stylesheets/new_colors_working-z-index.css 
+ 1026  ./stylescript.sh 
+ 1027  vim new_colors_working-z-index.css 
+ 1028  cd app/assets/stylesheets/
+ 1029  ls -l
+ 1030  more new_styles.scss 
+ 1031  scp  new_styles.scss /home/CAM/mblinov 
+ 1032  scp -u mblinov -p new_styles.scss /home/CAM/mblinov 
+ 1033  scp new_styles.scss mblinov@/home/CAM/mblinov 
+ 1034  scp new_styles.scss mblinov@home/CAM/mblinov 
+ 1035  cp new_styles.scss home/CAM/mblinov 
+ 1036  cp new_styles.scss /home/CAM/mblinov 
+ 1037  cp new_styles.scss /home/CAM/mblinov -u nvlinov -p
+ 1038* scp new_styles.scss /home/CAM/mblinov
+ 1039  pws
+ 1040  pwd
+ 1041  ls -l
+ 1042  cd ..
+ 1043  grep -rnw new_colors_working-z-index
+ 1044  grep -rnw new_colors
+ 1045  h > hist-2019-06-26.txt
+ 1046  hist > hist-2019-06-26.txt
+ 1047  history > hist-2019-06-26.txt 

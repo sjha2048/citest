@@ -1,0 +1,19 @@
+<% selected ||= nil %>
+<%= panel('Snapshots', id: 'snapshots') do %>
+    <% snapshots.order("created_at DESC").each do |snapshot| %>
+        <div>
+          <% if snapshot == selected %>
+              <%= content_tag :strong, "Snapshot #{snapshot.snapshot_number}" %>
+          <% else %>
+              <%= snapshot_link(resource,snapshot) %>
+          <% end %>
+          <span class="subtle">(<%= date_as_string(snapshot.created_at) %>)</span>
+          <% if snapshot.has_doi? %>
+              <%= image('doi', :alt => 'DOI', :title => "DOI: #{snapshot.doi}") %>
+          <% end %>
+          <% if snapshot.in_zenodo? %>
+              <%= image('snapshot_export', :alt => 'Exported to Zenodo', :title => 'Exported to Zenodo') %>
+          <% end %>
+        </div>
+    <% end %>
+<% end %>

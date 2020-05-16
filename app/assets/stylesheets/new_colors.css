@@ -1,0 +1,386 @@
+:root {
+  --main-titles: white; 
+  --main-bg-col: #263042; 
+  --secondary-bg-col: #3F4A5D; 
+  --accent-one: #FFBA9B; /* red/orange accent */ 
+  --accent-two: #EA8E64; /* dark red/orange accent */ 
+  --accent-three: #EA8E64; /* teal accent */ 
+  --accent-overlay-col: #353535; 
+  --navbar-dark-col: #111A2B; 
+}
+
+html {
+/*  use 100 (thin), 400 (regular), and 700 (bold) weight fonts */ 
+  background: var(--main-bg-col);
+  border: none;  
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  color: var(--main-titles); 
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-bg-col);
+/*  font-weight: 400; */ 
+/*   margin-left: 10%;  */ 
+/*   margin-right: 10%;  */ 
+}
+
+h1 {
+  color: var(--main-titles);
+  font-weight: 100; 
+  margin-bottom: 10px;
+  margin-top: 10px;
+/*  opacity: 80%;  */    
+}
+
+
+
+h4{
+  color: var(--main-titles); 
+}
+
+li {
+  /*background-color: var(--secondary-bg-col); */ 
+  color: white; 
+}
+
+li:hover {
+  background-color: var(--accent-two); 
+  color: var(--navbar-dark-col); 
+}
+
+h4 {
+  color: white; 
+}
+
+/*
+.panel-heading{
+  color: var(--main-titles): 
+  text-transform: uppercase; 
+  opacity: 50%;  
+}  */
+
+/* navbar details */ 
+
+.navbar-default {
+  background-color: var(--navbar-dark-col);
+  color: white; 
+  border: none;
+/*  size: 500%; */ 
+}
+
+.form-control{ /* this references the search bar */ 
+  background-color: #737e92;
+  color: white;
+  border-radius: 0px;
+  border-bottom-left: 100px; 
+  border-top-left: 100px;  
+  border: none; 
+}
+
+#search_box{
+  border-radius: 50px; 
+  border: none; 
+}
+
+
+/*
+.input-group-btn{
+  border-radius: 0px; 
+  background-color: var(--secondary-bg-col); 
+  color: white; 
+}
+*/
+
+.input-group{
+  border-radius: 0px; 
+  color: white; 
+  border: none; 
+}
+
+.dropdown-menu { 
+  border-radius: 0px;
+  background-color: var(--secondary-bg-col);
+  color: white; 
+}
+
+.dropdown-header {
+  border-radius: 0px; 
+  background-color: var(--secondary-bg-col);  
+  color: white; 
+}
+
+.dropdown-toggle {
+  color: white; 
+  background-color: var(--navbar-dark-col);
+}
+
+.nav {
+  z-index: 100; 
+}
+
+#navbar {
+  z-index: 50; 
+}
+
+.navbar {
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+  color: white;
+  z-index: 60;  
+}
+
+.navbar:hover {
+  background: var(-—accent-three); 
+  color: var(—-accent-two); 
+}
+
+.content {
+  margin-top: 100px; 
+}
+
+#content {
+  margin-top: 100px; 
+}
+
+/* panel details */ 
+
+.panel {
+  border: none;
+  background: var(--secondary-bg-col);
+  border-radius: 0px; 
+}
+
+.panel-default .panel-body {
+  color: var(--main-titles);
+  border-radius: 0px;  
+}
+
+.panel-default .panel-body input{
+  color: white;
+  border-radius: 0px; 
+  font-weight: bold;
+}
+
+.panel-default .panel-heading {
+  border: none;  
+  background-color: var(--secondary-bg-col); 
+  font-weight: 100;
+  color: var(--accent-one);
+  border-radius: 0px; 
+  text-transform: uppercase; 
+}
+
+.panel-footer{
+  background-color: var(--secondary-bg-col);
+  color: var(--accent-three); 
+  border-radius: 0px; 
+}
+
+#description {
+  background-color: var(--main-bg-col); 
+  color: var(--main-titles); 
+  border: none; 
+  border-radius: none; 
+}
+
+.well {
+  background-color: var(--main-bg-col);  
+  color: var(--main-titles);
+  border: none;
+  border-radius: none;
+}
+
+/* unsure what this is? */ 
+
+.modal-content {
+  color: var(--accent-three);
+}
+
+/* alert details */ 
+
+.alert-success{
+  background-color: var(--accent-one); 
+  color: var(--accent-two); /* dark yellow */ 
+  border: none; 
+  border-radius: 10px; 
+}
+
+.alert-info{
+  background-color: var(--accent-one);
+  color: var(--accent-two);
+  border: none;
+  border-radius: 10px; 
+}
+
+/* other common page details */ 
+
+#ft{
+  background-color: var(--main-bg-col); 
+  color: var(--main-titles); 
+} 
+
+/* registration page */ 
+
+.form-group{
+  color: var(--main-titles); 
+}
+
+/*  .container-fluid h1{
+  color: var(--accent-three); 
+}  */
+
+.btn {
+  border-radius: 50px; 
+  background-color: var(--accent-one);
+  color: var(--navbar-dark-col);  
+  border: none; 
+}
+
+.btn-default {
+  border-radius: 50px; 
+  background-color: var(--accent-one);
+  color: var(--navbar-dark-col);
+  border: none; 
+}
+
+.btn-primary {
+  border-radius: 50px; 
+  background-color: var(--accent-one);
+  color: var(--navbar-dark-col);
+  border: none; 
+}
+
+/*
+.btn .btn-primary {
+  border-radius: 50px;  
+  background-color: var(--accent-one); 
+  border: none; 
+  color: var(--navbar-dark-col);
+}
+
+.btn .btn-default {
+  background-color: var(--accent-one); 
+  border-radius: 50px;
+  border: none;  
+  color: var(--navbar-dark-col);
+}
+*/
+
+#stats-refresh-button {
+  border-radius: 50px; 
+  background-color: var(--accent-three); 
+  color: var(--navbar-dark-col);
+  border: none; 
+}
+
+.pure-button {
+  border-radius: 50px;
+  background-color: var(--accent-one);
+  border: none;
+  color: var(--navbar-dark-col);
+}
+
+.pure-button-primary {
+  border-radius: 50px;
+  background-color: var(--accent-one);
+  border: none;
+  color: var(--navbar-dark-col);
+}
+
+
+/* details related to searches, advanced search, etc (not including navbar search module) */
+
+.breadcrumbs{
+  background-color: var(--secondary-bg-col); 
+  color: var(--main-titles); 
+}
+
+.breadcrumb{
+  background-color: var(--secondary-bg-col); 
+}
+
+.pagination{
+  background-color: var(--secondary-bg-col); 
+  color: var(--main-titles);
+}
+
+.active {
+  background-color: var(-—accent-one); 	
+  color: var(--main-titles);
+  border-radius: 0px;  
+}
+.pagination .pagination-sm {
+  background-color: var(--secondary-bg-col); 
+  color: var(--main-titles);
+  border-radius: 0px;  
+}
+
+/*.active{
+  background-color: var(--secondary-bg-col); 
+  color: white; 
+}*/ 
+
+/* misc */ 
+
+.list_items_container {
+  margin-left: 10%; 
+  margin-right: 10%; 
+}
+
+#login_button{
+  background-color: var(--accent-one); 
+  border-radius: 50px;  
+  border: none; 
+  color: var(--navbar-dark-col); 
+}
+
+#login {
+  color: var(--navbar-dark-col); 
+}
+
+#seek-credit{
+  background-color: var(-—main-bg-col); 
+  color: var(--main-titles);
+  border: none; 
+  border-radius: 0px;  
+}
+
+.powered-by{
+  background-color: var(-—main-bg-col);
+  color: var(--main-titles);
+  border: none; 
+  border-radius: 0px; 
+}
+
+
+/* not working for some reason??? find navbar tag to add to "a" */
+/* this will define the color when you hover over an item in the navbar */ 
+
+a{
+  color: var(--main-titles); 
+}
+
+a:hover{
+  color: var(--accent-one); 
+  underline: none; 
+}
+
+/* the following are new classes or IDs created by DB / DF. */
+
+/* if we want to highlight certain words,  we can define it as this class and use the red color and higher font weight (see style guide) */ 
+.accent_text {
+  color: var(--accent-three);
+  font-weight: 700;  
+}
+
+/* specific style to call out our create project button up top on nav bar  
+#create_project {
+color: var(--accent-one); 
+font-weight: 700; 
+}
+*/ 
+
+
+

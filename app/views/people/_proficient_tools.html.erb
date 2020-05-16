@@ -1,0 +1,8 @@
+<% tools_list=person.tool_annotations.map(&:value) -%>
+
+<p id="tools">
+  <strong>Tools:</strong>
+  <ul>
+	  <li> <%= list_item_tags_list tools_list,type: :tool %></li>
+  </ul>
+</p>

@@ -1,0 +1,173 @@
+<h1>Browse</h1>
+
+<!--	
+
+	<h4>Browse by</h4>
+	 <div class="field">
+        <%= s.label :search_type %> <br />
+        <%= s.select :search_type, options_for_select(search_type_options,@search_type),
+                :class => "form-control" %>
+   	 </div>
+
+-->
+
+<h1>Search</h1>
+<%= form_for @advanced_search, html: {class: "pure-form"} do |s| %>
+
+    <h4>General Fields</h4>
+    <div class="field">
+        <%= s.label :keywords %> <br />
+	<%= s.text_field :keywords %>
+    </div>
+
+<!--
+
+   <div class="field">
+        <%= s.label :search_type %> <br />
+	<%= s.select :search_type, options_for_select(search_type_options,@search_type),
+		:class => "form-control" %>
+    </div>
+
+-->
+
+    <div class="field">
+        <%= s.label :institution %> <br />
+	<%= s.select :institution, options_for_select(["All"] + Institution.order(:title).map{|i| i.title}) %>
+    </div>
+
+    <br/>
+
+<!--    <h4>Project Specific Fields</h4> -->
+    <div class="field">
+        <%= s.label :project_status %> <br />
+        <%= s.select :project_status, options_for_select(["All"] + Seek::Util.project_statuses) %>
+    </div>
+
+    <%= s.label "Time range for project completion" %> <br/>
+
+    <div class="field" style = "display: inline-flex;">
+	<%= s.date_field :min_due_date -%>
+	<p style="margin-left:5px; margin-right:5px;"> to </p>
+	<%= s.date_field :max_due_date %>
+    </div>
+
+    <br/>
+    <br/>
+
+<!--
+
+    <h4>Person Specific Fields</h4> 
+
+-->
+
+    <div class="field">
+        <%= s.label :discipline %> <br />
+	<%= s.select :discipline, options_for_select(["All"] + Discipline.order(:title).map{|d| d.title}) %>
+    </div>
+
+    <div class="field">
+        <%= s.label :tool %> <br />
+	<%= s.text_field :tool %>
+    </div>
+
+    <%
+      all_tags,item_tags = fetch_tags_for_item Person.new,"tool"
+      type = "tag"
+      name = "tag"
+      no_tags_message = "There are no tags to search for"
+      all_tags.sort_by(&:text)
+      input_name = "#{name}_list"
+      existing_tags = item_tags.map {|t| t.text} 
+    %>
+
+    <div style="display: none;">
+      <%= tags_input(input_name, existing_tags, :typeahead => {:type => type}) %>
+    </div>
+
+    <%# cache "suggestions_for_#{name}", skip_digest: true do %>
+      <%
+        suggested_limit ||= 30
+        suggested_tags = all_tags.sort { |a, b| b.tag_count <=> a.tag_count }[0...suggested_limit]
+        suggested_tags.sort! { |a, b| a.text <=> b.text }
+      %>
+      <% if suggested_limit > 0 && suggested_tags.count > 0 -%>
+        <p style="font-size: 93%; margin-bottom: 0.2em; padding: 0 inherit; text-align: left; vertical-align: middle;">
+          <%= link_to_function ("View suggestions" + expand_image("0.3em")).html_safe, visual_effect(:toggle_blind, "#{name}_tag_suggestions", :duration => 0.4) %>
+        </p>
+        <div id="<%= name -%>_tag_suggestions" style="font-size: 93%; color: #333333; display: none; text-align: middle; margin-top: 0.5em; padding: 0.3em;">
+          <div class="tags_smaller">
+            <div id="<%= name -%>_select_tags" class="hTagcloud">
+              <div class="popularity">
+                <% unless suggested_tags.blank? -%>
+                    <% ann_cloud suggested_tags, %w(popular v-popular vv-popular vvv-popular vvvv-popular) do |tag, css_class| -%>
+                        <%#= link_to tag.text, "javascript:$j('##{input_name}').tagsinput('add', '#{tag.text}');", :class => css_class -%>
+			<div class = "<%= css_class -%>" style="float:left; margin-left:5px;">
+			  <%= tag.text -%>
+                        </div>
+                    <% end -%>
+                    <br/>
+                    <br/>
+                <% end -%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <%# end -%>
+
+
+
+    <div class="field">
+        <%= s.label :expertise %> <br />
+	<%= s.text_field :expertise %>
+    </div>
+
+    <%
+      all_tags,item_tags = fetch_tags_for_item Person.new,"expertise"
+      type = "expertise"
+      name = "expertise"
+      no_tags_message = "There are no areas of expertise to search for"
+      all_tags.sort_by(&:text)
+      input_name = "#{name}_list"
+      existing_tags = item_tags.map {|t| t.text} 
+    %>
+
+    <div style="display: none;">
+      <%= tags_input(input_name, existing_tags, :typeahead => {:type => type}) %>
+    </div>
+
+    <%# cache "suggestions_for_#{name}", skip_digest: true do %>
+      <%
+        suggested_limit ||= 30
+        suggested_tags = all_tags.sort { |a, b| b.tag_count <=> a.tag_count }[0...suggested_limit]
+        suggested_tags.sort! { |a, b| a.text <=> b.text }
+      %>
+      <% if suggested_limit > 0 && suggested_tags.count > 0 -%>
+        <p style="font-size: 93%; margin-bottom: 0.2em; padding: 0 inherit; text-align: left; vertical-align: middle;">
+          <%= link_to_function ("View suggestions" + expand_image("0.3em")).html_safe, visual_effect(:toggle_blind, "#{name}_tag_suggestions", :duration => 0.4) %>
+        </p>
+        <div id="<%= name -%>_tag_suggestions" style="font-size: 93%; color: #333333; display: none; text-align: left; margin-top: 0.5em; padding: 0.3em;">
+          <div class="tags_smaller">
+            <div id="<%= name -%>_select_tags" class="hTagcloud">
+              <div class="popularity">
+                <% unless suggested_tags.blank? -%>
+                    <% ann_cloud suggested_tags, %w(popular v-popular vv-popular vvv-popular vvvv-popular) do |tag, css_class| -%>
+			<div class = "<%= css_class -%>" style="float:left; margin-left:5px;">
+			  <%= tag.text -%>
+			</div>
+                    <% end -%>
+		    <br/>
+		    <br/>
+                <% end -%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <%# end -%>
+
+    <br/>
+
+    <div class="actions"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
+
+<% end %>

@@ -1,0 +1,26 @@
+<% person = resource %>
+
+<% cache "rli_#{person.cache_key}_#{hide_contact_details?(resource)}", skip_digest: true do -%>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= list_item_simple_list resource.projects, t('project').pluralize %>
+        <%= list_item_simple_list resource.institutions, "Institutions" %>
+
+        <% unless hide_contact_details?(resource) %>
+            <%= list_item_optional_attribute "Email", mail_to(h(resource.email)) %>
+        <% end %>
+        <%= list_item_orcid person %>
+      </div>
+
+      <div class="col-sm-6 hidden-xs">
+        <%= list_item_simple_list(resource.disciplines, "Disciplines") {|i| link_to i.title, people_path(:discipline_id => i.id)} %>
+        <%= list_item_simple_list(resource.project_positions, "Roles") {|i| link_to i.title, people_path(:project_position_id => i.id)} %>
+        <%= list_item_simple_list(resource.expertise_annotations.map(&:value), "Expertise") {|i| link_for_ann(i, :type => :expertise)} %>
+        <%= list_item_simple_list(resource.tool_annotations.map(&:value), "Tools") {|i| link_for_ann(i, :type => :tool)} %>
+      </div>
+    </div>
+
+    <div class="hidden-xs">
+      <%= list_item_description resource.description %>
+    </div>
+<% end -%>

@@ -1,0 +1,14 @@
+weight:
+  title: weight
+
+concentration:
+  title: concentration
+
+time:
+  title: time
+
+pressure:
+  title: pressure
+
+growth_medium:
+  title: growth medium

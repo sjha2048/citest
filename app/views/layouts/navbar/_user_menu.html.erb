@@ -1,0 +1,95 @@
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+
+jQuery.noConflict();
+
+(function($) {
+
+$(document).ready(function(){
+  $('.dropdown a.project-drop').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+
+})(jQuery); 
+
+</script> -->
+<!-- <script>jQuery.noConflict();</script> -->
+
+<% if logged_in_and_registered? %>
+    <li class="dropdown" id="user-menu">
+      <a href="#" style="padding-right:0px;" id="user-menu-button" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+        <% current_person = current_user.person %>
+        <% if current_person.avatar.nil? %>
+            <%= image_tag(icon_filename_for_key("person_avatar"), :size => "18x18") %>
+        <% else %>
+            <%= image_tag avatar_url(current_person, current_person.avatar_id, 18) %>
+        <% end %>
+        <!-- <span class="truncated-name" style="max-width: 12em"><%#= current_person.name %></span> -->
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" style="width:110%;" role="menu">
+        <li><%= link_to 'My profile', person_path(current_person) -%></li>
+	<% if false %>
+          <li><%= link_to 'Edit profile', edit_person_path(current_person) -%></li>
+	<% end %>
+        <li><%= link_to 'My items', items_person_path(current_person) -%></li>
+        <% unless current_person.projects.empty? %>
+            <!-- <li class="dropdown" style="padding:3px 0px; color:#333333; font-size:14px; margin-top:0px;">
+              <a href="#" class="dropdown-toggle project-drop" data-toggle="dropdown" role="button" aria-expanded="false">
+                <span class="hidden-md">My Projects</span>
+                <span class="caret"></span>
+              </a> -->
+              <!-- <ul class="dropdown-menu" style="padding:0 0; width:100%; border:none; margin:0;" role="menu"> -->
+                <!--<li role="presentation" class="dropdown-header visible-md">My Projects</li>-->
+                <li style="margin-left:20px; color:#333333">My Projects </li>
+                <% current_person.projects.each do |project| %>
+                  <li class="project-item" style = "margin-left:20px; color:#333333; font-size:11.5px;">    
+                    <a href="<%= project_path(project) %>">
+		      <div style="display:inline-block;">
+                        <span style="float:left; margin-right:3px;">
+		          <%= avatar(project, 20) -%>
+                        </span>
+                        <%= project.title %>
+                      </div>
+		    </a>
+ 		  </li>
+                <% end %>
+              <!-- </ul> -->
+            <!-- </li> -->
+        <% end %>
+
+        <li role="presentation" class="dropdown-header">
+          My favourites
+          <%= image_tag("ajax-loader.gif", :alt => "loading...", :title => "loading...",
+                        :id => "fav_ajax-loader", :style => 'display: none') %>
+        </li>
+        <div id="add-favourites-zone-text" style="display: none">
+          <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          Drop below to save
+        </div>
+        <% cache "favourites/user/#{current_user.id}", skip_digest: true do -%>
+            <div id="add-favourites-zone">
+              <div id="favourite_list">
+                <%= render :partial=>"favourites/gadget_list" %>
+              </div>
+            </div>
+        <% end -%>
+        <div id="delete-favourite-zone" style="display: none">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Drop here to delete
+        </div>
+
+        <% if current_person.is_admin? %>
+            <li role="presentation" class="divider"></li>
+            <li><%= link_to 'Server admin', admin_path -%></li>
+        <% end %>
+        <li role="presentation" class="divider"></li>
+        <li><%= link_to 'Change password', edit_user_path(current_user) -%></li>
+
+        <li><%= link_to 'Provide feedback', feedback_home_path -%></li>
+        <li><%= link_to 'Logout', logout_path, data: { confirm: 'Are you sure you wish to logout?' } -%></li>
+      </ul>
+    </li>
+<% end %>

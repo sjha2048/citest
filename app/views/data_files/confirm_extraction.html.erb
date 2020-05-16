@@ -1,0 +1,79 @@
+<% total = @samples.count + @rejected_samples.count %>
+
+<% if total > 0 %>
+    <div class="alert alert-info">
+      The following samples were detected in the data file.
+      Please review them, then click "Confirm" below to complete the process, or "Cancel Extraction" to cancel
+      the extraction process.
+    </div>
+    <div>
+      <ul class="nav nav-tabs" role="tablist">
+        <% if @samples.any? %>
+            <li role="presentation" class="active">
+              <a href="#accepted" aria-controls="home" role="tab" data-toggle="tab">
+                Accepted (<%= @samples.count -%>/<%= total %>)
+              </a>
+            </li>
+        <% end %>
+        <% if @rejected_samples.any? %>
+            <li role="presentation" class="<%= 'active' if @samples.none? -%>">
+              <a href="#rejected" aria-controls="profile" role="tab" data-toggle="tab">
+                Rejected (<%= @rejected_samples.count -%>/<%= total %>)
+              </a>
+            </li>
+        <% end %>
+      </ul>
+
+      <div class="tab-content">
+        <% if @samples.any? %>
+            <div role="tabpanel" class="tab-pane active" id="accepted">
+              <%= render partial: 'samples/table_view', locals: { samples: @samples } %>
+              <script>
+                $j(document).ready(function () {
+                  Samples.initTable($j('#accepted'));
+                });
+              </script>
+            </div>
+        <% end %>
+        <% if @rejected_samples.any? %>
+            <div role="tabpanel" class="tab-pane <%= 'active' if @samples.none? -%>" id="rejected">
+              <%= render partial: 'samples/table_view', locals: { samples: @rejected_samples } %>
+              <script>
+                $j(document).ready(function () {
+                  Samples.initTable($j('#rejected'));
+                });
+              </script>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% else %>
+    <span class="none_text">No samples were extracted</span>
+<% end %>
+
+<hr/>
+<%= form_tag(extract_samples_data_file_path(@data_file)) do %>
+    <%= hidden_field_tag(:sample_type_id, @sample_type.id) if @sample_type %>
+    <%= hidden_field_tag(:confirm, 'true') %>
+
+    <% if @data_file.assay_assets.any? %>
+        <h3>Link to assays</h3>
+        This data file is linked to the following assays.
+        Check the corresponding checkbox to also link the above samples to that assay.
+        <% @data_file.assay_assets.each do |aa| %>
+            <div class="checkbox">
+              <label>
+                <%= check_box_tag('assay_ids[]', aa.assay_id, false, autocomplete: 'off') %>
+                <%= aa.assay.title %>
+                <%= "(#{direction_name(aa.direction)})" if aa.direction %>
+              </label>
+            </div>
+        <% end %>
+
+        <hr/>
+    <% end %>
+
+    <%= submit_tag "Confirm", :class => 'btn btn-primary',disabled: @samples.empty? -%>
+    or <%= cancel_button(cancel_extraction_data_file_path(@data_file), button_text: 'Cancel Extraction', method: :delete) -%>
+<% end %>
+
