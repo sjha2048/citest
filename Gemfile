@@ -79,7 +79,7 @@ gem 'my_annotations', git: 'https://github.com/myGrid/annotations.git', branch: 
 
 
 gem 'jquery-rails', '~> 3'
-gem 'jquery-ui-rails', '~>3'
+gem 'jquery-ui-rails', '~>6'
 gem 'recaptcha', '~> 4.1.0'
 gem 'metainspector'
 gem 'mechanize'
